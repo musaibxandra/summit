@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { Twitter, Linkedin, Facebook, Instagram, Mail } from 'lucide-react'; // Assuming lucide-react for icons (install if needed: npm i lucide-react)
 
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 const Footer = () => {
   const fadeInUp = {
