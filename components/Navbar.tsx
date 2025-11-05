@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState, useTransition } from 'react' // Add useTransition here
-import { navbarLinks } from '@/constants'
-import { Button } from './ui/button'
-import { Menu, Globe } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { useTranslations, useLocale } from 'next-intl' // Add useLocale here
-import { useRouter } from 'next/navigation' // Add this import
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState, useTransition } from 'react'; // Add useTransition here
+import { navbarLinks } from '@/constants';
+import { Button } from './ui/button';
+import { Menu, Globe } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useTranslations, useLocale } from 'next-intl'; // Add useLocale here
+import { useRouter } from 'next/navigation'; // Add this import
 
 import {
   NavigationMenu,
@@ -17,7 +17,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from '@/components/ui/navigation-menu';
 
 import {
   Sheet,
@@ -25,65 +25,93 @@ import {
   SheetTrigger,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet"
+} from '@/components/ui/sheet';
 
 const attendeesItems = [
-  { title: "Speakers", href: "/speakers", description: "Secure your spot at the World HR Summit." },
-  { title: "Agenda", href: "/agenda", description: "Explore the full schedule of sessions and keynotes." },
-  { title: "Venue", href: "/venue", description: "Travel Location." },
-  { title: "Propose To Speak", href: "/propose-to-speak", description: "Let your voice be known." },
-  { title: "Plan Your Trip", href: "/plan-trip", description: "Travel and accommodation information for attendees." },
-]
+  {
+    title: 'Speakers',
+    href: '/speakers',
+    description: 'Secure your spot at the World HR Summit.',
+  },
+  {
+    title: 'Agenda',
+    href: '/agenda',
+    description: 'Explore the full schedule of sessions and keynotes.',
+  },
+  { title: 'Venue', href: '/venue', description: 'Travel Location.' },
+  {
+    title: 'Propose To Speak',
+    href: '/propose-to-speak',
+    description: 'Let your voice be known.',
+  },
+  {
+    title: 'Plan Your Trip',
+    href: '/plan-trip',
+    description: 'Travel and accommodation information for attendees.',
+  },
+];
 
 const sponsorItems = [
-  { title: "Sponsorship Enquiry", href: "/sponsorship", description: "Become a sponsor and reach global HR leaders." },
-  { title: "Exhibition Enquiry", href: "/exhibition", description: "Exhibit your products and services at the event." },
-  { title: "Sponsorship and Exhibition", href: "/sponsorship-exhibition", description: "Nominate for the HR Excellence Awards." },
-]
+  {
+    title: 'Sponsorship Enquiry',
+    href: '/sponsorship',
+    description: 'Become a sponsor and reach global HR leaders.',
+  },
+  {
+    title: 'Exhibition Enquiry',
+    href: '/exhibition',
+    description: 'Exhibit your products and services at the event.',
+  },
+  {
+    title: 'Sponsorship and Exhibition',
+    href: '/sponsorship-exhibition',
+    description: 'Nominate for the HR Excellence Awards.',
+  },
+];
 
 function ListItem({
   title,
   children,
   href,
   ...props
-}: React.ComponentPropsWithoutRef<"li"> & { 
-  title: string; 
-  children?: React.ReactNode; 
-  href: string; 
+}: React.ComponentPropsWithoutRef<'li'> & {
+  title: string;
+  children?: React.ReactNode;
+  href: string;
 }) {
   return (
     <li {...props} className="py-2 border-b border-gray-100 last:border-b-0">
-      <Link 
-        href={href} 
+      <Link
+        href={href}
         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
       >
-        <div className="text-sm leading-none font-medium text-gray-900">{title}</div>
-        <p className="text-sm leading-snug text-muted-foreground">
-          {children}
-        </p>
+        <div className="text-sm leading-none font-medium text-gray-900">
+          {title}
+        </div>
+        <p className="text-sm leading-snug text-muted-foreground">{children}</p>
       </Link>
     </li>
-  )
+  );
 }
 
 const LanguageSwitcher = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const currentLocale = useLocale()
-  const router = useRouter()
-  const [isPending, startTransition] = useTransition()
+  const [isOpen, setIsOpen] = useState(false);
+  const currentLocale = useLocale();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   const languages = [
     { code: 'en', name: 'English' },
-    { code: 'ar', name: 'العربية' }
-  ]
+    { code: 'ar', name: 'العربية' },
+  ];
 
   const handleLanguageChange = async (locale: string) => {
     if (currentLocale === locale) {
-      setIsOpen(false)
-      return // No-op if already selected
+      setIsOpen(false);
+      return; // No-op if already selected
     }
 
-    setIsOpen(false) // Close dropdown immediately for UX
+    setIsOpen(false); // Close dropdown immediately for UX
 
     try {
       // Set cookie via API server-side
@@ -91,25 +119,25 @@ const LanguageSwitcher = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ locale }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Failed to set locale')
+        throw new Error('Failed to set locale');
       }
 
       // Smooth refresh with transition
       startTransition(() => {
-        router.refresh()
-      })
+        router.refresh();
+      });
     } catch (error) {
-      console.error('Locale switch failed:', error)
+      console.error('Locale switch failed:', error);
       // Fallback: Client-side cookie + reload
-      document.cookie = `locale=${locale}; path=/; max-age=31536000`
-      window.location.reload()
+      document.cookie = `locale=${locale}; path=/; max-age=31536000`;
+      window.location.reload();
     }
-  }
+  };
 
-  const currentLanguage = languages.find(lang => lang.code === currentLocale)
+  const currentLanguage = languages.find((lang) => lang.code === currentLocale);
 
   return (
     <div className="relative inline-block text-left">
@@ -128,7 +156,12 @@ const LanguageSwitcher = () => {
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
@@ -145,7 +178,9 @@ const LanguageSwitcher = () => {
                 onClick={() => handleLanguageChange(lang.code)}
                 disabled={isPending} // Add pending state
                 className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md disabled:opacity-50 disabled:cursor-not-allowed ${
-                  currentLocale === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                  currentLocale === lang.code
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-gray-700'
                 }`}
               >
                 <span className="text-xs font-medium">{lang.name}</span>
@@ -168,12 +203,12 @@ const LanguageSwitcher = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
 const Navbar = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const t = useTranslations("HomePage")
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const t = useTranslations('HomePage');
 
   return (
     <header className="px-4 md:px-6 py-3 bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -189,7 +224,9 @@ const Navbar = () => {
             priority
             sizes="(max-width: 768px) 80px, 94px"
           />
-          <span className="text-lg font-bold text-gray-900 hidden sm:block">{t('title')}</span>
+          <span className="text-lg font-bold text-gray-900 hidden sm:block">
+            {t('title')}
+          </span>
         </Link>
 
         {/* Desktop Menu - Centered Links */}
@@ -197,13 +234,15 @@ const Navbar = () => {
           <NavigationMenu orientation="horizontal" className="flex">
             <NavigationMenuList className="gap-1 lg:gap-3">
               {navbarLinks.map((item) => {
-                if (item.label === "Attendees") {
+                if (item.label === 'Attendees') {
                   return (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className={cn(
-                        navigationMenuTriggerStyle(),
-                        "text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap"
-                      )}>
+                      <NavigationMenuTrigger
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
+                        )}
+                      >
                         {item.label}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -220,15 +259,17 @@ const Navbar = () => {
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
-                  )
+                  );
                 }
-                if (item.label === "Sponsor or Exhibit") {
+                if (item.label === 'Sponsor or Exhibit') {
                   return (
                     <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger className={cn(
-                        navigationMenuTriggerStyle(),
-                        "text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap"
-                      )}>
+                      <NavigationMenuTrigger
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
+                        )}
+                      >
                         {item.label}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -245,21 +286,21 @@ const Navbar = () => {
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
-                  )
+                  );
                 }
                 return (
                   <NavigationMenuItem key={item.label}>
-                    <Link 
+                    <Link
                       href={item.route}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "text-gray-600 hover:text-gray-900 transition-colors text-base lg:px-3 font-bold rounded-md hover:bg-gray-200 whitespace-nowrap"
+                        'text-gray-600 hover:text-gray-900 transition-colors text-base lg:px-3 font-bold rounded-md hover:bg-gray-200 whitespace-nowrap'
                       )}
                     >
                       {item.label}
                     </Link>
                   </NavigationMenuItem>
-                )
+                );
               })}
             </NavigationMenuList>
           </NavigationMenu>
@@ -268,15 +309,17 @@ const Navbar = () => {
         {/* Desktop Buttons - Right Aligned */}
         <div className="hidden md:flex items-center gap-2">
           <LanguageSwitcher />
-          <Button asChild className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap">
-            <Link href="/get_tickets">
-              Tickets
-            </Link>
+          <Button
+            asChild
+            className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap"
+          >
+            <Link href="/get_tickets">Tickets</Link>
           </Button>
-          <Button asChild className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap">
-            <Link href="/nominate">
-              Nominate
-            </Link>
+          <Button
+            asChild
+            className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap"
+          >
+            <Link href="/nominate">Nominate</Link>
           </Button>
         </div>
 
@@ -304,7 +347,7 @@ const Navbar = () => {
             <div className="p-6">
               <ul className="space-y-4">
                 {navbarLinks.map((item) => {
-                  if (item.label === "Attendees") {
+                  if (item.label === 'Attendees') {
                     return (
                       <li key={item.label} className="space-y-2">
                         <details className="cursor-pointer">
@@ -327,9 +370,9 @@ const Navbar = () => {
                           </ul>
                         </details>
                       </li>
-                    )
+                    );
                   }
-                  if (item.label === "Sponsor or Exhibit") {
+                  if (item.label === 'Sponsor or Exhibit') {
                     return (
                       <li key={item.label} className="space-y-2">
                         <details className="cursor-pointer">
@@ -352,7 +395,7 @@ const Navbar = () => {
                           </ul>
                         </details>
                       </li>
-                    )
+                    );
                   }
                   return (
                     <li key={item.label}>
@@ -363,21 +406,23 @@ const Navbar = () => {
                         {item.label}
                       </Link>
                     </li>
-                  )
+                  );
                 })}
                 <li className="pt-4 space-y-2">
                   <div className="pb-2">
                     <LanguageSwitcher />
                   </div>
-                  <Button asChild className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500">
-                    <Link href="/get_tickets">
-                      Tickets
-                    </Link>
+                  <Button
+                    asChild
+                    className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
+                  >
+                    <Link href="/get_tickets">Tickets</Link>
                   </Button>
-                  <Button asChild className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500">
-                    <Link href="/nominate">
-                      Nominate
-                    </Link>
+                  <Button
+                    asChild
+                    className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
+                  >
+                    <Link href="/nominate">Nominate</Link>
                   </Button>
                 </li>
               </ul>
@@ -386,7 +431,7 @@ const Navbar = () => {
         </Sheet>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

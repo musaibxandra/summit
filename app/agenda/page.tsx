@@ -35,14 +35,16 @@ const Agenda: React.FC = () => {
       duration: '45 mins',
       location: 'Millennium Plaza Downtown Hotel',
       title: 'Agile Leadership: The Role of HR in Organizational Resilience',
-      speaker: 'Dr. Charles Cotter – Independent Global Blended Learning Practitioner and HRM/Learning & Development Strategist',
+      speaker:
+        'Dr. Charles Cotter – Independent Global Blended Learning Practitioner and HRM/Learning & Development Strategist',
     },
     {
       time: '9:30 – 10:30',
       duration: '60 mins',
       location: 'Millennium Plaza Downtown Hotel',
       title: 'Challenges of Hybrid Work and Remote Team Management',
-      speaker: 'Deon Binneman – Reputation Management Adviser, Keynote Speaker, and Management Consultant, I empower Boards and Leadership Teams to build, protect, and elevate organizational and individual reputations',
+      speaker:
+        'Deon Binneman – Reputation Management Adviser, Keynote Speaker, and Management Consultant, I empower Boards and Leadership Teams to build, protect, and elevate organizational and individual reputations',
     },
     {
       time: '10:30 – 11:00',
@@ -56,14 +58,16 @@ const Agenda: React.FC = () => {
       duration: '60 mins',
       location: 'Millennium Plaza Downtown Hotel',
       title: 'Masterclass: Agile HR Operations',
-      speaker: 'Rabison Shumba – Professional Speaker, Global Trainer, Change Management and Leadership Expert',
+      speaker:
+        'Rabison Shumba – Professional Speaker, Global Trainer, Change Management and Leadership Expert',
     },
     {
       time: '12:30 – 1:10',
       duration: '40 mins',
       location: 'Millennium Plaza Downtown Hotel',
       title: 'Diversity, Equity & Inclusion Reimagined',
-      speaker: 'Darryn Van Den Berg – Applied Skills Architect (Award-winning, tech visionary, TedTalker)',
+      speaker:
+        'Darryn Van Den Berg – Applied Skills Architect (Award-winning, tech visionary, TedTalker)',
     },
     {
       time: '1:10 – 2:10',
@@ -83,7 +87,8 @@ const Agenda: React.FC = () => {
       time: '3:25 – 4:05',
       duration: '40 mins',
       location: 'Millennium Plaza Downtown Hotel',
-      title: 'Case Study: Building a New Type of Organization for the Future of Work',
+      title:
+        'Case Study: Building a New Type of Organization for the Future of Work',
       speaker: null, // Marked as '–'
     },
     {
@@ -103,11 +108,18 @@ const Agenda: React.FC = () => {
   ];
 
   return (
-    <div className="flex h-[80vh] p-8 overflow-hidden bg-white shadow-lg rounded-lg"> {/* Adjust height as needed */}
+    <div className="flex h-[80vh] p-8 overflow-hidden bg-white shadow-lg rounded-lg">
+      {' '}
+      {/* Adjust height as needed */}
       {/* First Column: Fixed Topics List */}
       <div className="w-1/2 bg-gray-50 p-6 flex flex-col sticky top-0 h-full overflow-hidden">
-        <h2 className="text-xl font-bold mb-4 text-gray-800">Key Topics to be Discussed</h2>
-        <p className="text-gray-600 mb-6">The summit will delve into the most pressing and transformative issues in HR, including:</p>
+        <h2 className="text-xl font-bold mb-4 text-gray-800">
+          Key Topics to be Discussed
+        </h2>
+        <p className="text-gray-600 mb-6">
+          The summit will delve into the most pressing and transformative issues
+          in HR, including:
+        </p>
         <ul className="space-y-2 text-sm text-gray-700 flex-1">
           {keyTopics.map((topic, index) => (
             <li key={index} className="flex items-start">
@@ -117,10 +129,11 @@ const Agenda: React.FC = () => {
           ))}
         </ul>
       </div>
-
       {/* Second Column: Scrollable Schedule */}
       <div className="w-1/2 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        <h2 className="text-xl font-bold mb-4 text-gray-800">Conference Schedule</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-800">
+          Conference Schedule
+        </h2>
         <div className="space-y-6">
           {scheduleItems.map((item, index) => (
             <div key={index} className="border-l-4 border-blue-500 pl-4 pb-4">

@@ -1,8 +1,8 @@
 'use client';
 
-import {useRouter} from 'next/navigation';
-import {useLocale, useTranslations} from 'next-intl';
-import {useTransition} from 'react'; // Add this import for smooth switching
+import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { useTransition } from 'react'; // Add this import for smooth switching
 
 export default function LanguageSwitcher() {
   const router = useRouter();
@@ -10,7 +10,8 @@ export default function LanguageSwitcher() {
   const t = useTranslations('HomePage'); // Assuming your button uses HomePage namespace
   const [isPending, startTransition] = useTransition(); // Add this for non-blocking updates
 
-  const switchLocale = async (newLocale: 'en' | 'ar') => { // Generalize to handle both locales
+  const switchLocale = async (newLocale: 'en' | 'ar') => {
+    // Generalize to handle both locales
     if (currentLocale === newLocale) return; // No-op if already selected
 
     try {
@@ -42,10 +43,11 @@ export default function LanguageSwitcher() {
   const targetLocale = isArabic ? 'en' : 'ar'; // Toggle logic
 
   return (
-    <button 
+    <button
       onClick={() => switchLocale(targetLocale)}
       disabled={isPending}
-      style={{ // Optional: Basic styling for feedback
+      style={{
+        // Optional: Basic styling for feedback
         opacity: isPending ? 0.5 : 1,
         cursor: isPending ? 'not-allowed' : 'pointer',
       }}

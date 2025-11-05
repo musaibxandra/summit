@@ -1,28 +1,33 @@
-"use client"
+'use client';
 
-import React, { useState } from "react"
+import React, { useState } from 'react';
 
 interface CardFlipHoverProps {
-  imageUrl: string
+  imageUrl: string;
 }
 
 export const CardFlipHover = ({ imageUrl }: CardFlipHoverProps) => {
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleHover = () => {
     if (!isFlipped) {
-      setIsFlipped(true)
-      setTimeout(() => setIsFlipped(false), 700)
+      setIsFlipped(true);
+      setTimeout(() => setIsFlipped(false), 700);
     }
-  }
+  };
 
   return (
-    <div className="h-[150px] w-[210px] [perspective:1000px]" onMouseEnter={handleHover}> {/* Adjusted height/width to fit logo dimensions (120px x 180px); use responsive like "h-32 w-44 lg:h-[120px] lg:w-[180px]" if needed */}
+    <div
+      className="h-[150px] w-[210px] [perspective:1000px]"
+      onMouseEnter={handleHover}
+    >
+      {' '}
+      {/* Adjusted height/width to fit logo dimensions (120px x 180px); use responsive like "h-32 w-44 lg:h-[120px] lg:w-[180px]" if needed */}
       <div
         className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] ${
           isFlipped
-            ? "[transform:rotateY(180deg)_translateY(-40px)]"
-            : "[transform:rotateY(0deg)_translateY(0px)]"
+            ? '[transform:rotateY(180deg)_translateY(-40px)]'
+            : '[transform:rotateY(0deg)_translateY(0px)]'
         }`}
       >
         {/* Front Side */}
@@ -44,5 +49,5 @@ export const CardFlipHover = ({ imageUrl }: CardFlipHoverProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

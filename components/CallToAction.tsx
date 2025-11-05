@@ -1,21 +1,29 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { motion, HTMLMotionProps } from 'framer-motion'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button' // Assuming shadcn/ui Button; swap for Aceternity's AnimatedButton if available
-import { cn } from '@/lib/utils' // Utility for classNames
+import React from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button'; // Assuming shadcn/ui Button; swap for Aceternity's AnimatedButton if available
+import { cn } from '@/lib/utils'; // Utility for classNames
 
 // Aceternity-inspired Gradient Background (from their Gradient components)
-const GradientBackground = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={cn(
-    'relative overflow-hidden bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800',
-    'before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]',
-    className
-  )}>
+const GradientBackground = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={cn(
+      'relative overflow-hidden bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800',
+      'before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]',
+      className
+    )}
+  >
     {children}
   </div>
-)
+);
 
 // Aceternity-inspired Sparkles (simplified from their Sparkles component)
 const Sparkles = ({ className }: { className?: string }) => (
@@ -38,11 +46,12 @@ const Sparkles = ({ className }: { className?: string }) => (
       />
     ))}
   </div>
-)
+);
 
 // Aceternity-inspired Animated Button (using Framer Motion for hover effects) - Fixed: Explicit children typing to React.ReactNode to resolve MotionValue conflict
-interface AnimatedButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {
-  children: React.ReactNode
+interface AnimatedButtonProps
+  extends Omit<HTMLMotionProps<'button'>, 'children'> {
+  children: React.ReactNode;
 }
 
 const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
@@ -62,8 +71,8 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
       />
     </motion.button>
   )
-)
-AnimatedButton.displayName = 'AnimatedButton'
+);
+AnimatedButton.displayName = 'AnimatedButton';
 
 const CallToAction = () => {
   return (
@@ -71,8 +80,12 @@ const CallToAction = () => {
       <GradientBackground className="rounded-3xl mx-4 md:mx-8">
         <Sparkles className="z-0" />
         <div className="relative z-10 px-4 md:px-8 py-14">
-          <h1 className='text-center text-white text-4xl font-bold'>Call for Nominations</h1>
-          <h1 className='text-center text-white text-lg'>Recognize Excellence and Impact</h1>
+          <h1 className="text-center text-white text-4xl font-bold">
+            Call for Nominations
+          </h1>
+          <h1 className="text-center text-white text-lg">
+            Recognize Excellence and Impact
+          </h1>
           <div className="grid md:grid-cols-2 items-center gap-8 mt-6">
             {/* Image Column - Already included as requested */}
             <motion.div
@@ -96,7 +109,8 @@ const CallToAction = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-gray-300 mb-8 max-w-lg"
               >
-                Nominate a deserving leader today and help us celebrate excellence that inspires change!
+                Nominate a deserving leader today and help us celebrate
+                excellence that inspires change!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -104,7 +118,12 @@ const CallToAction = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-gray-300 mb-8 max-w-lg"
               >
-                We are excited to announce that nominations are now open for this year’s awards! This is your opportunity to celebrate individuals and organizations who have demonstrated outstanding leadership, innovation, and commitment in their field. Whether they are trailblazers, changemakers, or unsung heroes, we invite you to shine a spotlight on their achievements.
+                We are excited to announce that nominations are now open for
+                this year’s awards! This is your opportunity to celebrate
+                individuals and organizations who have demonstrated outstanding
+                leadership, innovation, and commitment in their field. Whether
+                they are trailblazers, changemakers, or unsung heroes, we invite
+                you to shine a spotlight on their achievements.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -112,7 +131,11 @@ const CallToAction = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="cursor-pointer flex flex-col sm:flex-row gap-4 text-gray-100"
               >
-                <AnimatedButton onClick={() => {/* Handle ticket logic */}}>
+                <AnimatedButton
+                  onClick={() => {
+                    /* Handle ticket logic */
+                  }}
+                >
                   Submit your nomination now
                 </AnimatedButton>
               </motion.div>
@@ -121,7 +144,7 @@ const CallToAction = () => {
         </div>
       </GradientBackground>
     </section>
-  )
-}
+  );
+};
 
-export default CallToAction
+export default CallToAction;

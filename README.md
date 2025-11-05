@@ -6,44 +6,49 @@ Showcases services, pricing, appointment booking, and an elegant gallery to high
 ---
 
 ## 🌐 Live Demo
-👉 [View Website](https://style-saloon-and-spa.vercel.app/)  
+
+👉 [View Website](https://style-saloon-and-spa.vercel.app/)
 
 ---
 
 ## 📸 Screenshots
 
 ### Home Page
+
 ![Home Page Screenshot](public/icons/snapshot_2.png)
 
 ### Services
-![Services Screenshot](public/icons/snapshot_1.png)
 
+![Services Screenshot](public/icons/snapshot_1.png)
 
 ---
 
 ## 🚀 Features
-- 💇 Service pages with pricing  
-- 📅 Appointment booking system  
-- 📸 Gallery & portfolio section  
-- 📱 Fully responsive, mobile-first design  
-- 🎨 Customizable theme with Tailwind & shadcn components  
+
+- 💇 Service pages with pricing
+- 📅 Appointment booking system
+- 📸 Gallery & portfolio section
+- 📱 Fully responsive, mobile-first design
+- 🎨 Customizable theme with Tailwind & shadcn components
 
 ---
 
 ## 🛠️ Tech Stack
+
 - Languages: HTML, CSS, Javascript/Typscript
 - Library: React, HeroIcons, React-Lucide
 - Package Manager: Node.JS
-- **Framework:** [Next.js](https://nextjs.org/)  
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)  
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)  
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
 
 ---
 
 ## 📂 Getting Started
 
 Clone the repository:
-```bash
+
+````bash
 git clone https://github.com/yourusername/style-salon.git
 cd style-salon
 
@@ -63,7 +68,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

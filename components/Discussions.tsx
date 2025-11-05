@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { CircleArrowRight } from 'lucide-react'
+import React from 'react';
+import { CircleArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Discussions = () => {
@@ -15,7 +15,7 @@ const Discussions = () => {
     'Digital Privacy and Ethical Talent Analytics',
     'Building Resilient and Inclusive Organizational Cultures',
     'Performance Management: Strategies for the Modern Workplace',
-    'Employee Experience: Enhancing Engagement and Well-being'
+    'Employee Experience: Enhancing Engagement and Well-being',
   ];
 
   const secondTopics = [
@@ -26,7 +26,7 @@ const Discussions = () => {
     'Reimagining Inclusion & Shaping the Future of Work',
     'Designing Inclusive Workplaces and Tomorrow Organizations',
     'Tech, Transformation & Networking',
-    'Exploring the Future of Work and Building Connections Over Cocktails'
+    'Exploring the Future of Work and Building Connections Over Cocktails',
   ];
 
   const thirdTopics = [
@@ -37,7 +37,7 @@ const Discussions = () => {
     'Healing at Work: Focus on Mental Fitness & Talent Management',
     'Managing Talent and Mental Fitness in Global & Digital Workplaces',
     'Celebrating Excellence in HR',
-    'World HR Excellence Awards 2025 | Africa Gala Dinner'
+    'World HR Excellence Awards 2025 | Africa Gala Dinner',
   ];
 
   return (
@@ -50,12 +50,18 @@ const Discussions = () => {
             <div className="absolute top-60 right-16 w-40 h-40 bg-gray-400 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-32 left-1/2 w-28 h-28 bg-gray-300 rounded-full blur-2xl"></div>
           </div>
-          
-          <h1 className='w-full text-xl font-bold relative z-10'>Theme: Agile Leadership & <br/>Workforce Evolution</h1>
-          <br/>
+
+          <h1 className="w-full text-xl font-bold relative z-10">
+            Theme: Agile Leadership & <br />
+            Workforce Evolution
+          </h1>
+          <br />
           {firstTopics.map((topic, index) => (
-            <div key={index} className='flex items-start space-x-3 relative z-10 mb-2'>
-              <CircleArrowRight className='inline-block h-5 w-5 flex-shrink-0 text-gray-600 mt-0.5'/>
+            <div
+              key={index}
+              className="flex items-start space-x-3 relative z-10 mb-2"
+            >
+              <CircleArrowRight className="inline-block h-5 w-5 flex-shrink-0 text-gray-600 mt-0.5" />
               <span className="leading-relaxed">{topic}</span>
             </div>
           ))}
@@ -69,20 +75,23 @@ const Discussions = () => {
             <div className="absolute bottom-24 left-20 w-36 h-36 bg-blue-300 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute top-32 right-20 w-28 h-28 bg-indigo-300 rounded-full blur-2xl animate-bounce"></div>
           </div>
-          
-          <h1 className='w-full text-xl font-bold relative z-10'>4 December 2025</h1>
-          <br/>
-          <br/>
+
+          <h1 className="w-full text-xl font-bold relative z-10">
+            4 December 2025
+          </h1>
+          <br />
+          <br />
           {secondTopics.map((topic, index) => (
-            <div key={index} className='flex items-start space-x-3 relative z-10 mb-2'>
-              <CircleArrowRight className='inline-block h-5 w-5 flex-shrink-0 text-blue-600 mt-0.5'/>
+            <div
+              key={index}
+              className="flex items-start space-x-3 relative z-10 mb-2"
+            >
+              <CircleArrowRight className="inline-block h-5 w-5 flex-shrink-0 text-blue-600 mt-0.5" />
               <span className="leading-relaxed">{topic}</span>
             </div>
           ))}
           <br />
-          <Button className="relative z-10">
-            READ AGENDA
-          </Button>
+          <Button className="relative z-10">READ AGENDA</Button>
         </div>
 
         {/* Third Column - Green Theme with Grid Pattern */}
@@ -92,25 +101,28 @@ const Discussions = () => {
             <div className="absolute top-72 left-16 w-36 h-36 bg-emerald-300 rounded-full blur-2xl animate-bounce"></div>
             <div className="absolute bottom-24 right-24 w-32 h-32 border-4 border-green-400 rounded-2xl animate-spin"></div>
           </div>
-          
-          <h1 className='w-full text-lg font-bold relative z-10'>5 December 2025</h1>
-          <br/>
-          <br/>
+
+          <h1 className="w-full text-lg font-bold relative z-10">
+            5 December 2025
+          </h1>
+          <br />
+          <br />
           {thirdTopics.map((topic, index) => (
-            <div key={index} className='flex items-start space-x-3 relative z-10 mb-2'>
-              <CircleArrowRight className='inline-block h-5 w-5 flex-shrink-0 text-green-600 mt-0.5'/>
+            <div
+              key={index}
+              className="flex items-start space-x-3 relative z-10 mb-2"
+            >
+              <CircleArrowRight className="inline-block h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
               <span className="leading-relaxed">{topic}</span>
             </div>
           ))}
           <br />
           <br />
-          <Button className="relative z-10">
-            READ AGENDA
-          </Button>
+          <Button className="relative z-10">READ AGENDA</Button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Discussions
+export default Discussions;
