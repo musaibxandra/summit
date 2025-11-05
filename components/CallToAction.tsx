@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'; // Assuming shadcn/ui Button; swap for Aceternity's AnimatedButton if available
 import { cn } from '@/lib/utils'; // Utility for classNames
 
 // Aceternity-inspired Gradient Background (from their Gradient components)
