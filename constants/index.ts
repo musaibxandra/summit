@@ -10,18 +10,18 @@ export const navbarLinks = [
     label: 'Attendees',
   },
   {
-    imgURL: '/icons/money-send.svg',
-    route: '/why-choose-us',
+    imgURL: '/',
+    route: '/',
     label: 'Sponsor or Exhibit',
   },
   {
-    imgURL: '/icons/money-send.svg',
-    route: '/why-choose-us',
+    imgURL: '/',
+    route: '/',
     label: 'Awards',
   },
   {
-    imgURL: '/icons/money-send.svg',
-    route: '/why-choose-us',
+    imgURL: '/',
+    route: '/',
     label: 'Contact',
   },
 ];
