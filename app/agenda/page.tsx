@@ -1,0 +1,144 @@
+// components/Agenda.tsx (or wherever you place it)
+import React from 'react';
+
+const Agenda: React.FC = () => {
+  const keyTopics = [
+    'Managing Through Emergencies and Disasters',
+    'Talent Acquisition and Retention in the Digital Age',
+    'Diversity, Equity, and Inclusion: Beyond Buzzwords',
+    'The Future of Work: Trends and Predictions',
+    'AI and Automation: Revolutionizing HR Processes',
+    'Leadership Development for a Changing World',
+    'Digital Privacy and Ethical Talent Analytics',
+    'Building Resilient and Inclusive Organizational Cultures',
+    'Performance Management: Strategies for the Modern Workplace',
+    'Employee Experience: Enhancing Engagement and Well-being',
+  ];
+
+  const scheduleItems = [
+    {
+      time: '8:00 – 8:30',
+      duration: '30 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Registration/Arrival & Exhibition Viewing',
+      speaker: null,
+    },
+    {
+      time: '8:30 – 8:40',
+      duration: '10 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Conference Opening & Welcome',
+      speaker: null,
+    },
+    {
+      time: '8:40 – 9:25',
+      duration: '45 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Agile Leadership: The Role of HR in Organizational Resilience',
+      speaker: 'Dr. Charles Cotter – Independent Global Blended Learning Practitioner and HRM/Learning & Development Strategist',
+    },
+    {
+      time: '9:30 – 10:30',
+      duration: '60 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Challenges of Hybrid Work and Remote Team Management',
+      speaker: 'Deon Binneman – Reputation Management Adviser, Keynote Speaker, and Management Consultant, I empower Boards and Leadership Teams to build, protect, and elevate organizational and individual reputations',
+    },
+    {
+      time: '10:30 – 11:00',
+      duration: '30 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Morning Tea & Coffee/Exhibition Viewing',
+      speaker: null,
+    },
+    {
+      time: '11:00 – 12:00',
+      duration: '60 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Masterclass: Agile HR Operations',
+      speaker: 'Rabison Shumba – Professional Speaker, Global Trainer, Change Management and Leadership Expert',
+    },
+    {
+      time: '12:30 – 1:10',
+      duration: '40 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Diversity, Equity & Inclusion Reimagined',
+      speaker: 'Darryn Van Den Berg – Applied Skills Architect (Award-winning, tech visionary, TedTalker)',
+    },
+    {
+      time: '1:10 – 2:10',
+      duration: '60 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Lunch & Exhibition Viewing',
+      speaker: null,
+    },
+    {
+      time: '2:10 – 2:50',
+      duration: '40 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Keynote: HR as a Catalyzer for Organizational Evolution',
+      speaker: 'Graeme Lategan – Operations Manager',
+    },
+    {
+      time: '3:25 – 4:05',
+      duration: '40 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Case Study: Building a New Type of Organization for the Future of Work',
+      speaker: null, // Marked as '–'
+    },
+    {
+      time: '4:30 – 5:15',
+      duration: '40 mins',
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Future of Work Technology: The Next Chapter',
+      speaker: null, // Marked as '–'
+    },
+    {
+      time: '5:15 – 8:00',
+      duration: '40 mins', // Note: This seems off (2h45m?), but as per input
+      location: 'Millennium Plaza Downtown Hotel',
+      title: 'Networking Drinks',
+      speaker: null,
+    },
+  ];
+
+  return (
+    <div className="flex h-[80vh] p-8 overflow-hidden bg-white shadow-lg rounded-lg"> {/* Adjust height as needed */}
+      {/* First Column: Fixed Topics List */}
+      <div className="w-1/2 bg-gray-50 p-6 flex flex-col sticky top-0 h-full overflow-hidden">
+        <h2 className="text-xl font-bold mb-4 text-gray-800">Key Topics to be Discussed</h2>
+        <p className="text-gray-600 mb-6">The summit will delve into the most pressing and transformative issues in HR, including:</p>
+        <ul className="space-y-2 text-sm text-gray-700 flex-1">
+          {keyTopics.map((topic, index) => (
+            <li key={index} className="flex items-start">
+              <span className="text-blue-600 mr-2">•</span>
+              {topic}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Second Column: Scrollable Schedule */}
+      <div className="w-1/2 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <h2 className="text-xl font-bold mb-4 text-gray-800">Conference Schedule</h2>
+        <div className="space-y-6">
+          {scheduleItems.map((item, index) => (
+            <div key={index} className="border-l-4 border-blue-500 pl-4 pb-4">
+              <div className="flex justify-between items-center mb-1">
+                <span className="font-semibold text-gray-800">{item.time}</span>
+                <span className="text-sm text-gray-500">{item.duration}</span>
+              </div>
+              <p className="text-xs text-gray-400 mb-2">{item.location}</p>
+              <h3 className="font-medium text-gray-900 mb-1">{item.title}</h3>
+              {item.speaker && (
+                <p className="text-sm text-gray-600 italic">{item.speaker}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Agenda;
