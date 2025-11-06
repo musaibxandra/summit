@@ -3,41 +3,45 @@
 import React from 'react';
 import { CircleArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const Discussions = () => {
+  const t = useTranslations('Discussions');
+
   const firstTopics = [
-    'Managing Through Emergencies and Disasters',
-    'Talent Acquisition and Retention in the Digital Age',
-    'Diversity, Equity, and Inclusion: Beyond Buzzwords',
-    'The Future of Work: Trends and Predictions',
-    'AI and Automation: Revolutionizing HR Processes',
-    'Leadership Development for a Changing World',
-    'Digital Privacy and Ethical Talent Analytics',
-    'Building Resilient and Inclusive Organizational Cultures',
-    'Performance Management: Strategies for the Modern Workplace',
-    'Employee Experience: Enhancing Engagement and Well-being',
+    t('topic1'),
+    t('topic2'),
+    t('topic3'),
+    t('topic4'),
+    t('topic5'),
+    t('topic6'),
+    t('topic7'),
+    t('topic8'),
+    t('topic9'),
+    t('topic10'),
   ];
 
   const secondTopics = [
-    'HR as a Catalyst for Resilience & Growth',
-    'Unlocking Organizational Agility and Evolution',
-    'Mastering Hybrid Teams & Agile HR',
-    'Strategies for Leading Distributed Workforces in Organizations',
-    'Reimagining Inclusion & Shaping the Future of Work',
-    'Designing Inclusive Workplaces and Tomorrow Organizations',
-    'Tech, Transformation & Networking',
-    'Exploring the Future of Work and Building Connections Over Cocktails',
+    t('topic11'),
+    t('topic12'),
+    t('topic13'),
+    t('topic14'),
+    t('topic15'),
+    t('topic16'),
+    t('topic17'),
+    t('topic18'),
   ];
 
   const thirdTopics = [
-    'Shaping the HR Agenda',
-    'Leaders Respond to Emerging Conditions',
-    'Imagining the Future of Remote Work',
-    'Managing Multicultural & Multigenerational Workforces',
-    'Healing at Work: Focus on Mental Fitness & Talent Management',
-    'Managing Talent and Mental Fitness in Global & Digital Workplaces',
-    'Celebrating Excellence in HR',
-    'World HR Excellence Awards 2025 | Africa Gala Dinner',
+    t('topic19'),
+    t('topic20'),
+    t('topic21'),
+    t('topic22'),
+    t('topic23'),
+    t('topic24'),
+    t('topic25'),
+    t('topic26'),
   ];
 
   return (
@@ -53,8 +57,7 @@ const Discussions = () => {
           </div>
 
           <h1 className="w-full text-xl font-bold relative z-10">
-            Theme: Agile Leadership & <br />
-            Workforce Evolution
+            {t('themeTitle')}
           </h1>
           <br />
           {firstTopics.map((topic, index) => (
@@ -78,7 +81,7 @@ const Discussions = () => {
           </div>
 
           <h1 className="w-full text-xl font-bold relative z-10">
-            4 December 2025
+            {t('dec4Title')}
           </h1>
           <br />
           <br />
@@ -92,7 +95,9 @@ const Discussions = () => {
             </div>
           ))}
           <br />
-          <Button className="relative z-10">READ AGENDA</Button>
+          <Link href="/agenda">
+          <Button className="relative cursor-pointer z-10">{t('readAgenda')}</Button>
+          </Link>
         </div>
 
         {/* Third Column - Green Theme with Grid Pattern */}
@@ -104,7 +109,7 @@ const Discussions = () => {
           </div>
 
           <h1 className="w-full text-lg font-bold relative z-10">
-            5 December 2025
+            {t('dec5Title')}
           </h1>
           <br />
           <br />
@@ -119,7 +124,9 @@ const Discussions = () => {
           ))}
           <br />
           <br />
-          <Button className="relative z-10">READ AGENDA</Button>
+          <Link href="/agenda">
+          <Button className="relative cursor-pointer z-10">{t('readAgenda')}</Button>
+          </Link>
         </div>
       </div>
       </div>

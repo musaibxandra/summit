@@ -1,3 +1,5 @@
+'use client';
+
 // components/HowItWorks.tsx
 
 import {
@@ -11,53 +13,50 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
+import { useTranslations } from 'next-intl';
 
 export default function HowItWorks() {
+  const t = useTranslations('Steps');
+
   return (
     <section className="w-full mt-22 px-4 md:px-6 pb-18">
       <div className="max-w-7xl mx-auto text-center">
         <div className="grid gap-28 lg:grid-cols-2">
           <div className="">
             <h2 className="flex text-left text-3xl font-bold">
-              SHAPING THE FUTURE OF HR ON A GLOBAL STAGE
+              {t('title')}
             </h2>
             <br />
             <h3 className="flex text-left text-2xl font-bold">
-              Meet. Inspire. Transform.
+              {t('subtitle')}
             </h3>
             <p className="flex text-left">
-              The World HR Summit & Expo 2025 | Global is your gateway to the
-              future of human resources. Set against the stunning backdrop of
-              Dubai at the iconic World Trade Center, this global event will
-              bring together the brightest minds in HR to explore groundbreaking
-              ideas, share actionable insights, and forge powerful connections.
-              Across two days of keynote speeches, panel discussions, and
-              interactive sessions, attendees will experience a transformative
-              journey through the evolving landscape of HR. This glamorous
-              black-tie event will bring together over 500 of the world’s
-              leading employers, including HR Heads/Directors, CEOs, and other
-              business leaders.
+              {t('description')}
             </p>
             <br />
             <h4 className="font-bold text-left">
-              50M Impressions | 1000+ Decision Makers | 90+ World Class Speakers
+              {t('stats')}
             </h4>
             <br />
             <div className="flex gap-4">
-              <HoverBorderGradient
-                containerClassName="rounded-full"
-                as="button"
-                className="dark:bg-black text-left border-green-200 border-1 bg-gray-100 cursor-pointer text-black dark:text-white flex items-center space-x-2"
-              >
-                <span>Get Tickets</span>
-              </HoverBorderGradient>
-              <HoverBorderGradient
-                containerClassName="rounded-full"
-                as="button"
-                className="dark:bg-black text-left border-green-200 border-1 bg-gray-100 cursor-pointer text-black dark:text-white flex items-center space-x-2"
-              >
-                <span>Sponser or Exhibit</span>
-              </HoverBorderGradient>
+              <Link href="/get_tickets">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="button"
+                  className="dark:bg-black text-left border-green-200 border-1 bg-gray-100 cursor-pointer text-black dark:text-white flex items-center space-x-2"
+                >
+                  <span>{t('getTickets')}</span>
+                </HoverBorderGradient>
+              </Link>
+              <Link href="/sponsorship">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="button"
+                  className="dark:bg-black text-left border-green-200 border-1 bg-gray-100 cursor-pointer text-black dark:text-white flex items-center space-x-2"
+                >
+                  <span>{t('sponsorOrExhibit')}</span>
+                </HoverBorderGradient>
+              </Link>
             </div>
           </div>
           <div className="">
@@ -70,12 +69,12 @@ export default function HowItWorks() {
             <br />
             <h3 className="text-left font-bold flex item-center gap-2">
               <Calendar />
-              4-5 December 2025
+              {t('date')}
             </h3>
             <br />
             <h3 className="text-left font-bold flex item-center gap-2">
               <MapPin />
-              Millennium Plaza Downtown Hotel
+              {t('venue')}
             </h3>
             <br />
             <div className="flex gap-3">

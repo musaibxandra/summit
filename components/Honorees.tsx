@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 import { Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
+import { useTranslations } from 'next-intl';
 
 interface Speaker {
   title: string;
@@ -71,11 +74,12 @@ const speakers: Speaker[] = [
   },
 ];
 
-const SpeakerCard: React.FC<Speaker> = ({
+const SpeakerCard: React.FC<Speaker & { t: any }> = ({
   title,
   description,
   imageUrl,
   linkedinUrl,
+  t,
 }) => (
   <CardContainer className="inter-var">
     <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
@@ -109,7 +113,7 @@ const SpeakerCard: React.FC<Speaker> = ({
           target="_blank"
           className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
         >
-          Check out →
+          {t('checkOut')}
         </CardItem>
         <CardItem
           translateZ={20}
@@ -128,30 +132,18 @@ const SpeakerCard: React.FC<Speaker> = ({
 );
 
 const Honorees: React.FC = () => {
+  const t = useTranslations('Honorees');
+
   return (
     <div className="w-full px-4 md:px-6 my-24">
       <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold">2025 Honored Speakers</h1>
+      <h1 className="text-3xl font-bold">{t('title')}</h1>
       <div className="grid lg:grid-cols-4 mt-6 gap-6">
         {speakers.map((speaker, index) => (
           <div key={index}>
-            <SpeakerCard {...speaker} />
+            <SpeakerCard {...speaker} t={t} />
           </div>
         ))}
-      </div>
-      <div className="flex gap-4 mt-6">
-        <Button
-          variant="outline"
-          className="border-green-500 cursor-pointer border-1"
-        >
-          EXPLORE ALL SPEAKERS
-        </Button>
-        <Button
-          variant="outline"
-          className="border-green-500 cursor-pointer border-1"
-        >
-          PROPOSE TO SPEAK
-        </Button>
       </div>
       </div>
     </div>

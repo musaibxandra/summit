@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +11,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from './ui/button';
+import { useTranslations } from 'next-intl';
 
 interface FeatureCardProps {
   imageSrc: string;
@@ -23,95 +26,102 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
 }) => (
-  <Card className="w-full h-auto border-0 shadow-sm hover:shadow-md transition-shadow">
-    <CardContent className="p-3"> {/* Reduced from px-3 + default padding */}
-      <div className="relative aspect-[4/3] rounded-md bg-gray-100 mb-3 overflow-hidden">
-        {/* Smaller image: 4:3 aspect ratio, less height */}
-        <Image src={imageSrc} alt={alt} fill className="object-cover" />
+  <Card className="group w-full h-auto border border-gray-200/50 shadow-sm hover:shadow-xl hover:border-green-300/50 transition-all duration-300 overflow-hidden bg-white hover:-translate-y-1">
+    <CardContent className="p-0">
+      {/* Image Container with Overlay Effect */}
+      <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+        <Image 
+          src={imageSrc} 
+          alt={alt} 
+          fill 
+          className="object-cover transition-transform duration-500 group-hover:scale-110" 
+        />
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/0 to-black/0 group-hover:from-black/0 group-hover:via-black/10 group-hover:to-black/20 transition-all duration-300" />
       </div>
-      <CardTitle className="text-base font-semibold line-clamp-2 mb-1">
-        {title}
-      </CardTitle>
-      <CardDescription className="text-xs text-gray-600 line-clamp-3">
-        {description}
-      </CardDescription>
+      
+      {/* Content Section */}
+      <div className="p-4 sm:p-5">
+        <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-green-600 transition-colors duration-300">
+          {title}
+        </CardTitle>
+        <CardDescription className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
+          {description}
+        </CardDescription>
+      </div>
     </CardContent>
   </Card>
 );
 
 const Gathering = () => {
+  const t = useTranslations('Gathering');
+
   const features = [
     {
       imageSrc: '/gathering/keynote.png',
       alt: 'Insightful Keynotes and Panel Discussions illustration',
-      title: 'Insightful Keynotes and Panel Discussions',
-      description:
-        'Attendees gain direct access to top-tier speakers and thought leaders in the HR space. From future workplace trends to evolving talent strategies, the sessions are packed with real-world insights, case studies, and practical tools that help professionals stay ahead in a rapidly changing HR landscape.',
+      title: t('keynoteTitle'),
+      description: t('keynoteDescription'),
     },
     {
       imageSrc: '/gathering/network.png',
       alt: 'Global Networking Opportunities illustration',
-      title: 'Global Networking Opportunities',
-      description:
-        'The HR Gathering offers an incredible platform to connect with HR leaders, innovators, and professionals from around the world. Whether you’re building partnerships, exploring collaborations, or simply sharing ideas, the event fosters meaningful connections that can shape your career and your organization’s future.',
+      title: t('networkTitle'),
+      description: t('networkDescription'),
     },
     {
       imageSrc: '/gathering/intaractive.png',
       alt: 'Interactive Learning Experiences illustration',
-      title: 'Interactive Learning Experiences',
-      description:
-        'Workshops and breakout sessions at the HR Gathering are designed to be hands-on and highly engaging. Whether it’s mastering new HR technologies, enhancing employee well-being strategies, or developing inclusive leadership, these sessions provide tangible takeaways you can immediately apply in your role.',
+      title: t('interactiveTitle'),
+      description: t('interactiveDescription'),
     },
     {
       imageSrc: '/gathering/inspire.png',
       alt: 'Inspiration to Drive Change illustration',
-      title: 'Inspiration to Drive Change',
-      description:
-        'More than just learning, the HR Gathering inspires action. The energy, stories, and shared passion among attendees leave you motivated to return to your workplace with fresh ideas, renewed purpose, and the confidence to lead impactful change within your organization.',
+      title: t('inspireTitle'),
+      description: t('inspireDescription'),
     },
     {
       imageSrc: '/gathering/awards.png',
       alt: 'Celebrating Excellence illustration',
-      title: 'Celebrating Excellence',
-      description:
-        'One of the highlights of the event is the prestigious HR Awards ceremony, which honors outstanding achievements and innovations in the field of human resources. It’s a moment to recognize individuals and organizations that are redefining the future of work, making it a proud and inspiring celebration for all attendees.',
+      title: t('excellenceTitle'),
+      description: t('excellenceDescription'),
     },
   ];
 
   return (
-    <section className="w-full px-4 md:px-6 py-10">
+    <section className="w-full px-4 md:px-6 py-12 md:py-16 bg-gradient-to-b from-white to-gray-50/30">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-left mb-3">
-            Experience the HR Gathering
+        <div className="mb-12 md:mb-16 text-center md:text-left">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {t('title')}
           </h1>
-          <p className="text-base text-gray-600 max-w-3xl">
-            Gain insights, explore innovations, and connect with global HR leaders
-            shaping the future of work
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl">
+            {t('description')}
           </p>
         </div>
 
-        {/* Smaller, tighter grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-8">
+        {/* Enhanced grid with better spacing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
         </div>
 
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-          <Link href="/tickets" rel="noopener noreferrer">
-            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
-              Get Tickets
+          <Link href="/get_tickets" rel="noopener noreferrer">
+            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              {t('getTickets')}
             </Button>
           </Link>
-          <Link href="/sponsor" rel="noopener noreferrer">
-            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
-              Sponsor or Exhibit
+          <Link href="/sponsorship" rel="noopener noreferrer">
+            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              {t('sponsorOrExhibit')}
             </Button>
           </Link>
           <Link href="/nominate" rel="noopener noreferrer">
-            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
-              Nominate
+            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              {t('nominate')}
             </Button>
           </Link>
         </div>

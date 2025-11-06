@@ -1,20 +1,17 @@
 import { getRequestConfig } from 'next-intl/server';
-import { headers } from 'next/headers';
+import { cookies } from 'next/headers';
 
 export default getRequestConfig(async () => {
-  // Get locale from Accept-Language header or default to 'en'
-  const headersList = await headers();
-  const acceptLanguage = headersList.get('accept-language');
+  // Get locale from cookie - next-intl uses NEXT_LOCALE by default
+  const cookieStore = await cookies();
+  let locale = cookieStore.get('NEXT_LOCALE')?.value || 
+               cookieStore.get('locale')?.value || 
+               'en';
 
-  // Simple detection: check if Arabic is preferred
-  let locale = 'en';
-  if (acceptLanguage?.includes('ar')) {
-    locale = 'ar';
+  // Validate locale
+  if (locale !== 'en' && locale !== 'ar') {
+    locale = 'en';
   }
-
-  // Or you could store it in a cookie and read it:
-  // const cookieStore = await cookies();
-  // const locale = cookieStore.get('locale')?.value || 'en';
 
   return {
     locale,

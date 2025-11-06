@@ -27,40 +27,45 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 
-const attendeesItems = [
+// These will be populated with translations inside the component
+const getAttendeesItems = (t: any) => [
   {
-    title: 'Speakers',
+    title: t('attendeesSpeakers'),
     href: '/speakers',
-    description: 'Secure your spot at the World HR Summit.',
+    description: t('attendeesDescription'),
   },
   {
-    title: 'Agenda',
+    title: t('attendeesAgenda'),
     href: '/agenda',
-    description: 'Explore the full schedule of sessions and keynotes.',
+    description: t('attendeesAgendaDescription'),
   },
-  { title: 'Venue', href: '/venue', description: 'Travel Location.' },
   {
-    title: 'Propose To Speak',
+    title: t('attendeesVenue'),
+    href: '/venue',
+    description: t('attendeesVenueDescription'),
+  },
+  {
+    title: t('attendeesSpeak'),
     href: '/speak',
-    description: 'Let your voice be known.',
+    description: t('attendeesSpeakDescription'),
   },
 ];
 
-const sponsorItems = [
+const getSponsorItems = (t: any) => [
   {
-    title: 'Sponsorship Enquiry',
+    title: t('sponsorEnquiry'),
     href: '/sponsorship',
-    description: 'Become a sponsor and reach global HR leaders.',
+    description: t('sponsorEnquiryDescription'),
   },
   {
-    title: 'Exhibition Enquiry',
+    title: t('exhibitionEnquiry'),
     href: '/exhibition',
-    description: 'Exhibit your products and services at the event.',
+    description: t('exhibitionEnquiryDescription'),
   },
   {
-    title: 'Sponsorship and Exhibition',
+    title: t('sponsorExhibition'),
     href: '/sponsorship-exhibition',
-    description: 'Nominate for the HR Excellence Awards.',
+    description: t('sponsorExhibitionDescription'),
   },
 ];
 
@@ -97,6 +102,7 @@ const LanguageSwitcher = () => {
   const currentLocale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const tNav = useTranslations('Navbar');
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -127,7 +133,8 @@ const LanguageSwitcher = () => {
       });
     } catch (error) {
       console.error('Locale switch failed:', error);
-      document.cookie = `locale=${locale}; path=/; max-age=31536000`;
+      document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
+      document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       window.location.reload();
     }
   };
@@ -143,7 +150,7 @@ const LanguageSwitcher = () => {
       >
         <Globe className="w-4 h-4 text-gray-600" />
         <span className="text-xs font-medium text-gray-700">
-          {isPending ? 'Switching...' : currentLanguage?.name}
+          {isPending ? tNav('switching') : currentLanguage?.name}
         </span>
         <svg
           className={`w-3 h-3 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -205,6 +212,7 @@ const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [navigationValue, setNavigationValue] = useState('');
   const t = useTranslations('HomePage');
+  const tNav = useTranslations('Navbar');
 
   const closeNavigationMenu = () => {
     setNavigationValue('');
@@ -234,7 +242,15 @@ const Navbar = () => {
           <NavigationMenu orientation="horizontal" value={navigationValue} onValueChange={setNavigationValue}>
             <NavigationMenuList className="gap-1 lg:gap-2 xl:gap-3">
               {navbarLinks.map((item) => {
+                const labelKey = item.label === 'Home' ? 'home' :
+                  item.label === 'Attendees' ? 'attendees' :
+                  item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
+                  item.label === 'Awards' ? 'awards' :
+                  item.label === 'Contact' ? 'contact' : item.label.toLowerCase();
+                const translatedLabel = tNav(labelKey as any) || item.label;
+
                 if (item.label === 'Attendees') {
+                  const attendeesItems = getAttendeesItems(tNav);
                   return (
                     <NavigationMenuItem key={item.label} value="attendees">
                       <NavigationMenuTrigger
@@ -243,7 +259,7 @@ const Navbar = () => {
                           'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-sm lg:text-base lg:px-2 xl:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
                         )}
                       >
-                        {item.label}
+                        {translatedLabel}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
                         <ul className="grid gap-2 w-[300px] md:w-[400px]">
@@ -263,6 +279,7 @@ const Navbar = () => {
                   );
                 }
                 if (item.label === 'Sponsor or Exhibit') {
+                  const sponsorItems = getSponsorItems(tNav);
                   return (
                     <NavigationMenuItem key={item.label} value="sponsor">
                       <NavigationMenuTrigger
@@ -271,7 +288,7 @@ const Navbar = () => {
                           'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-sm lg:text-base lg:px-2 xl:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
                         )}
                       >
-                        {item.label}
+                        {translatedLabel}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
                         <ul className="grid gap-2 w-[300px] md:w-[400px]">
@@ -299,7 +316,7 @@ const Navbar = () => {
                         'text-gray-600 hover:text-gray-900 transition-colors text-sm lg:text-base lg:px-2 xl:px-3 font-bold rounded-md hover:bg-gray-200 whitespace-nowrap'
                       )}
                     >
-                      {item.label}
+                      {translatedLabel}
                     </Link>
                   </NavigationMenuItem>
                 );
@@ -315,13 +332,13 @@ const Navbar = () => {
             asChild
             className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
           >
-            <Link href="/get_tickets">Tickets</Link>
+            <Link href="/get_tickets">{tNav('tickets')}</Link>
           </Button>
           <Button
             asChild
             className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
           >
-            <Link href="/nominate">Nominate</Link>
+            <Link href="/nominate">{tNav('nominate')}</Link>
           </Button>
         </div>
 
@@ -343,18 +360,26 @@ const Navbar = () => {
                   height={24}
                   priority
                 />
-                <span className="text-lg font-bold">Menu</span>
+                <span className="text-lg font-bold">{tNav('menu')}</span>
               </SheetTitle>
             </SheetHeader>
             <div className="p-6">
               <ul className="space-y-4">
                 {navbarLinks.map((item) => {
+                  const labelKey = item.label === 'Home' ? 'home' :
+                    item.label === 'Attendees' ? 'attendees' :
+                    item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
+                    item.label === 'Awards' ? 'awards' :
+                    item.label === 'Contact' ? 'contact' : item.label.toLowerCase();
+                  const translatedLabel = tNav(labelKey as any) || item.label;
+
                   if (item.label === 'Attendees') {
+                    const attendeesItems = getAttendeesItems(tNav);
                     return (
                       <li key={item.label} className="space-y-2">
                         <details className="cursor-pointer">
                           <summary className="text-base font-bold text-gray-900 list-none flex items-center justify-between w-full py-2 hover:bg-gray-100 rounded-md px-2">
-                            {item.label}
+                            {translatedLabel}
                             <span className="transition-transform rotate-0 data-[state=open]:rotate-180">
                               <Menu className="h-4 w-4" />
                             </span>
@@ -376,11 +401,12 @@ const Navbar = () => {
                     );
                   }
                   if (item.label === 'Sponsor or Exhibit') {
+                    const sponsorItems = getSponsorItems(tNav);
                     return (
                       <li key={item.label} className="space-y-2">
                         <details className="cursor-pointer">
                           <summary className="text-base font-bold text-gray-900 list-none flex items-center justify-between w-full py-2 hover:bg-gray-100 rounded-md px-2">
-                            {item.label}
+                            {translatedLabel}
                             <span className="transition-transform rotate-0 data-[state=open]:rotate-180">
                               <Menu className="h-4 w-4" />
                             </span>
@@ -408,7 +434,7 @@ const Navbar = () => {
                         className="block text-base font-bold text-gray-900 hover:text-gray-600 py-2 hover:bg-gray-100 rounded-md px-2 transition-colors"
                         onClick={() => setIsMobileOpen(false)}
                       >
-                        {item.label}
+                        {translatedLabel}
                       </Link>
                     </li>
                   );
@@ -421,13 +447,13 @@ const Navbar = () => {
                     asChild
                     className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
                   >
-                    <Link href="/get_tickets">Tickets</Link>
+                    <Link href="/get_tickets">{tNav('tickets')}</Link>
                   </Button>
                   <Button
                     asChild
                     className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
                   >
-                    <Link href="/nominate">Nominate</Link>
+                    <Link href="/nominate">{tNav('nominate')}</Link>
                   </Button>
                 </li>
               </ul>

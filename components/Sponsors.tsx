@@ -11,8 +11,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { useTranslations } from 'next-intl';
 
 export default function Sponsors() {
+  const t = useTranslations('Sponsors');
   const images = [
     '/sponsors/giif.png',
     '/sponsors/workpay.png',
@@ -27,7 +29,7 @@ export default function Sponsors() {
     <div className="w-full px-4 md:px-6">
       <div className="max-w-7xl mx-auto my-6 flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-8 text-center">
-          2025 Exhibitors and Sponsors
+          {t('title')}
         </h1>
         <div className="w-full max-w-4xl my-16">
           {' '}

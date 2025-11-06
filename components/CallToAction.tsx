@@ -4,6 +4,7 @@ import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils'; // Utility for classNames
+import { useTranslations } from 'next-intl';
 
 // Aceternity-inspired Gradient Background (from their Gradient components)
 const GradientBackground = ({
@@ -74,16 +75,18 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
 AnimatedButton.displayName = 'AnimatedButton';
 
 const CallToAction = () => {
+  const t = useTranslations('CallToAction');
+
   return (
     <section className="relative py-12">
       <GradientBackground className="rounded-3xl mx-4 md:mx-8">
         <Sparkles className="z-0" />
         <div className="relative z-10 px-4 md:px-8 py-14">
           <h1 className="text-center text-white text-4xl font-bold">
-            Call for Nominations
+            {t('title')}
           </h1>
           <h1 className="text-center text-white text-lg">
-            Recognize Excellence and Impact
+            {t('subtitle')}
           </h1>
           <div className="grid md:grid-cols-2 items-center gap-8 mt-6">
             {/* Image Column - Already included as requested */}
@@ -108,8 +111,7 @@ const CallToAction = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-gray-300 mb-8 max-w-lg"
               >
-                Nominate a deserving leader today and help us celebrate
-                excellence that inspires change!
+                {t('description1')}
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -117,12 +119,7 @@ const CallToAction = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-gray-300 mb-8 max-w-lg"
               >
-                We are excited to announce that nominations are now open for
-                this year’s awards! This is your opportunity to celebrate
-                individuals and organizations who have demonstrated outstanding
-                leadership, innovation, and commitment in their field. Whether
-                they are trailblazers, changemakers, or unsung heroes, we invite
-                you to shine a spotlight on their achievements.
+                {t('description2')}
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -135,7 +132,7 @@ const CallToAction = () => {
                     /* Handle ticket logic */
                   }}
                 >
-                  Submit your nomination now
+                  {t('submitNomination')}
                 </AnimatedButton>
               </motion.div>
             </div>

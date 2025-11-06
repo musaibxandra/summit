@@ -7,8 +7,10 @@ import { motion } from 'framer-motion';
 import { Twitter, Linkedin, Facebook, Instagram, Mail } from 'lucide-react'; // Assuming lucide-react for icons (install if needed: npm i lucide-react)
 
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('Footer');
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -96,14 +98,14 @@ const Footer = () => {
 
           {/* Column 2: Get Involved */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">Get Involved</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">{t('getInvolved')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/tickets"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Get Tickets
+                  {t('getTickets')}
                 </Link>
               </li>
               <li>
@@ -111,7 +113,7 @@ const Footer = () => {
                   href="/sponsorship"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Sponsorship Enquiry
+                  {t('sponsorshipEnquiry')}
                 </Link>
               </li>
               <li>
@@ -119,7 +121,7 @@ const Footer = () => {
                   href="/exhibition"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Exhibition Enquiry
+                  {t('exhibitionEnquiry')}
                 </Link>
               </li>
               <li>
@@ -127,7 +129,7 @@ const Footer = () => {
                   href="/nominate"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Nominate
+                  {t('nominate')}
                 </Link>
               </li>
             </ul>
@@ -135,14 +137,14 @@ const Footer = () => {
 
           {/* Column 3: Explore More */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">Explore More</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">{t('exploreMore')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/agenda"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Agenda
+                  {t('agenda')}
                 </Link>
               </li>
               <li>
@@ -150,7 +152,7 @@ const Footer = () => {
                   href="/speakers"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Meet Our Speakers
+                  {t('meetSpeakers')}
                 </Link>
               </li>
               <li>
@@ -158,7 +160,7 @@ const Footer = () => {
                   href="/awards"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Awards
+                  {t('awards')}
                 </Link>
               </li>
               <li>
@@ -166,7 +168,7 @@ const Footer = () => {
                   href="/sponsor-exhibit"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Sponsor or Exhibit
+                  {t('sponsorOrExhibit')}
                 </Link>
               </li>
               <li>
@@ -174,7 +176,7 @@ const Footer = () => {
                   href="/plan-trip"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Plan Your Trip
+                  {t('planTrip')}
                 </Link>
               </li>
             </ul>
@@ -182,21 +184,21 @@ const Footer = () => {
 
           {/* Column 4: Stay Updated */}
           <motion.div variants={fadeInUp} className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4 text-white">Stay Updated</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">{t('stayUpdated')}</h3>
             <p className="text-gray-300 mb-4">
-              Sign up for the latest news on the HR Gathering.
+              {t('signUpText')}
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('enterEmail')}
                 className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
               />
               <Button
                 variant="default"
                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
               >
-                Subscribe
+                {t('subscribe')}
               </Button>
             </div>
           </motion.div>
@@ -204,36 +206,31 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-          <p>&copy; 2025 HR Gathering. All rights reserved.</p>
+          <p>{t('copyright')}</p>
           <div className="flex justify-center gap-4 mt-2">
             <Link
               href="/privacy"
               className="hover:text-white transition-colors"
             >
-              Privacy Policy
+              {t('privacyPolicy')}
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
+              {t('termsOfService')}
             </Link>
             <Link
               href="/contact"
               className="hover:text-white transition-colors"
             >
-              Contact Us
+              {t('contactUs')}
             </Link>
           </div>
         </div>
         <div>
           <p className="text-gray-400 mt-6">
-            Mikono Expo Group is Africa’s leading event organizer, renowned for
-            delivering world-class conferences and exhibitions. With over 75
-            trade and consumer events annually, Mikono Expo Group has a proven
-            track record of connecting industry leaders, fostering innovation,
-            and creating impactful experiences.
+            {t('mikonoDescription')}
           </p>
           <p className="text-gray-400 mt-2">
-            © 2025 The World HR Summit & Expo 2025 | Global . All rights
-            reserved.
+            {t('worldHRCopyright')}
           </p>
         </div>
       </div>

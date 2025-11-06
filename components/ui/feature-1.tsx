@@ -32,9 +32,9 @@ export const Feature1 = ({
   description = 'Hundreds of finely crafted components...',
   description2 = '',
   videoSrc = '/vid/hrtech.mp4',
-  firstButton = { label: 'Get Tickets', href: '#' },
+  firstButton = { label: 'Get Tickets', href: '/get_tickets' },
   secondButton = { label: 'Sponsor or Exhibit', href: '#' },
-  thirdButton = { label: 'Nominate', href: '#' },
+  thirdButton = { label: 'Nominate', href: '/nominate' },
 }: Feature1Props) => {
   return (
     <section className="relative overflow-hidden min-h-screen w-full flex items-center">

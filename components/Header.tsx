@@ -1,25 +1,30 @@
+'use client';
+
 import React from 'react';
 import { Feature1 } from './ui/feature-1';
+import { useTranslations } from 'next-intl';
 
 const Header = () => {
+  const t = useTranslations('Header');
+
   return (
     <div>
       <Feature1
-        title="Empower Leadership"
+        title={t('title')}
         image="/icons/hrlogo.png"
-        description="4-5 December 2025 | Millennium Plaza Hotel Dubai, UAE."
-        description2="CONNECTING MINDS. TRANSFORMING WORKPLACES. LEADING THE FUTURE."
+        description={t('description')}
+        description2={t('description2')}
         firstButton={{
-          label: 'Get Tickets',
-          href: 'https://shadcnblocks.com',
+          label: t('getTickets'),
+          href: '/get_tickets',
         }}
         secondButton={{
-          label: 'Sponsor or Exhibit',
-          href: 'https://shadcnblocks.com',
+          label: t('sponsorOrExhibit'),
+          href: '/contact',
         }}
         thirdButton={{
-          label: 'Nominate',
-          href: 'https://shadcnblocks.com',
+          label: t('nominate'),
+          href: '/nominate',
         }}
       />
     </div>
