@@ -26,7 +26,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 
-// These will be populated with translations inside the component
+// Helper: Attendees dropdown items
 const getAttendeesItems = (t: any) => [
   {
     title: t('attendeesSpeakers'),
@@ -50,6 +50,7 @@ const getAttendeesItems = (t: any) => [
   },
 ];
 
+// Helper: Sponsor dropdown items
 const getSponsorItems = (t: any) => [
   {
     title: t('sponsorEnquiry'),
@@ -68,6 +69,7 @@ const getSponsorItems = (t: any) => [
   },
 ];
 
+// ListItem for dropdowns (shared)
 function ListItem({
   title,
   children,
@@ -96,7 +98,12 @@ function ListItem({
   );
 }
 
-const LanguageSwitcher = () => {
+// LanguageSwitcher with optional onCloseMenu
+interface LanguageSwitcherProps {
+  onCloseMenu?: () => void;
+}
+
+const LanguageSwitcher = ({ onCloseMenu }: LanguageSwitcherProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSwitching, setIsSwitching] = useState(false);
   const currentLocale = useLocale();
@@ -110,10 +117,12 @@ const LanguageSwitcher = () => {
   const handleLanguageChange = async (locale: string) => {
     if (currentLocale === locale || isSwitching) {
       setIsOpen(false);
+      onCloseMenu?.();
       return;
     }
 
     setIsOpen(false);
+    onCloseMenu?.(); // Close mobile menu before switching
     setIsSwitching(true);
 
     try {
@@ -123,21 +132,14 @@ const LanguageSwitcher = () => {
         body: JSON.stringify({ locale }),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to set locale');
-      }
+      if (!response.ok) throw new Error('Failed to set locale');
 
-      // Set cookies immediately on client side
       document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
-      
-      // Small delay to show "switching" message, then reload
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
+
+      setTimeout(() => window.location.reload(), 100);
     } catch (error) {
       console.error('Locale switch failed:', error);
-      // Fallback: Set cookies and reload
       document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       window.location.reload();
@@ -163,21 +165,13 @@ const LanguageSwitcher = () => {
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-10"
-            onClick={() => setIsOpen(false)}
-          />
+          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
           <div className="absolute right-0 z-20 mt-2 w-36 bg-white border border-gray-200 rounded-md shadow-lg">
             {languages.map((lang) => (
               <button
@@ -185,18 +179,12 @@ const LanguageSwitcher = () => {
                 onClick={() => handleLanguageChange(lang.code)}
                 disabled={isSwitching}
                 className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md disabled:opacity-50 disabled:cursor-not-allowed ${
-                  currentLocale === lang.code
-                    ? 'bg-blue-50 text-blue-600'
-                    : 'text-gray-700'
+                  currentLocale === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
                 }`}
               >
                 <span className="text-xs font-medium">{lang.name}</span>
                 {currentLocale === lang.code && (
-                  <svg
-                    className="w-3 h-3"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fillRule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -213,6 +201,7 @@ const LanguageSwitcher = () => {
   );
 };
 
+// Main Navbar Component
 const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [navigationValue, setNavigationValue] = useState('');
@@ -247,7 +236,8 @@ const Navbar = () => {
           <NavigationMenu orientation="horizontal" value={navigationValue} onValueChange={setNavigationValue}>
             <NavigationMenuList className="gap-1 lg:gap-2 xl:gap-3">
               {navbarLinks.map((item) => {
-                const labelKey = item.label === 'Home' ? 'home' :
+                const labelKey =
+                  item.label === 'Home' ? 'home' :
                   item.label === 'Attendees' ? 'attendees' :
                   item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
                   item.label === 'Awards' ? 'awards' :
@@ -283,6 +273,7 @@ const Navbar = () => {
                     </NavigationMenuItem>
                   );
                 }
+
                 if (item.label === 'Sponsor or Exhibit') {
                   const sponsorItems = getSponsorItems(tNav);
                   return (
@@ -312,6 +303,7 @@ const Navbar = () => {
                     </NavigationMenuItem>
                   );
                 }
+
                 return (
                   <NavigationMenuItem key={item.label}>
                     <Link
@@ -347,7 +339,7 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu */}
         <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="sm" className="lg:hidden">
@@ -371,7 +363,8 @@ const Navbar = () => {
             <div className="p-6">
               <ul className="space-y-4">
                 {navbarLinks.map((item) => {
-                  const labelKey = item.label === 'Home' ? 'home' :
+                  const labelKey =
+                    item.label === 'Home' ? 'home' :
                     item.label === 'Attendees' ? 'attendees' :
                     item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
                     item.label === 'Awards' ? 'awards' :
@@ -405,6 +398,7 @@ const Navbar = () => {
                       </li>
                     );
                   }
+
                   if (item.label === 'Sponsor or Exhibit') {
                     const sponsorItems = getSponsorItems(tNav);
                     return (
@@ -432,6 +426,7 @@ const Navbar = () => {
                       </li>
                     );
                   }
+
                   return (
                     <li key={item.label}>
                       <Link
@@ -444,19 +439,23 @@ const Navbar = () => {
                     </li>
                   );
                 })}
+
+                {/* Mobile Buttons & Language Switcher */}
                 <li className="pt-4 space-y-2">
                   <div className="pb-2">
-                    <LanguageSwitcher />
+                    <LanguageSwitcher onCloseMenu={() => setIsMobileOpen(false)} />
                   </div>
                   <Button
                     asChild
-                    className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
+                    className="w-full bg-green-600 px-5 hover:bg-green-500"
+                    onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/get_tickets">{tNav('tickets')}</Link>
                   </Button>
                   <Button
                     asChild
-                    className="w-full bg-green-600 px-5 cursor-pointer hover:bg-green-500"
+                    className="w-full bg-green-600 px-5 hover:bg-green-500"
+                    onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/nominate">{tNav('nominate')}</Link>
                   </Button>
