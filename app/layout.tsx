@@ -22,6 +22,18 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icons/hrlogo.png', // or '/favicon.png'
   },
+  openGraph: {
+    title: 'World HR Summit 2025',
+    description: 'Welcome to the World HR Summit 2025',
+    url: 'https://summit-rose.vercel.app/',
+    siteName: 'World HR Summit 2025',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'World HR Summit 2025',
+    description: 'Welcome to the World HR Summit 2025',
+    images: ['/icons/hrse.avif']
+  }
 };
 
 export default async function RootLayout({
