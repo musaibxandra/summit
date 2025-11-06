@@ -102,7 +102,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/tickets"
+                  href="/get_tickets"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   {t('getTickets')}
@@ -165,18 +165,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/sponsor-exhibit"
+                  href="/sponsorship"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   {t('sponsorOrExhibit')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/plan-trip"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {t('planTrip')}
                 </Link>
               </li>
             </ul>
