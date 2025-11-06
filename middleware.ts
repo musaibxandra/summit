@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Simple pass-through middleware
-  // Locale is handled entirely via cookies in i18n/request.tsx
+  // Read locale from cookie
+  const localeCookie = request.cookies.get('NEXT_LOCALE')?.value || 
+                      request.cookies.get('locale')?.value || 
+                      'en';
+  
+  // Validate locale
+  const locale = (localeCookie === 'en' || localeCookie === 'ar') ? localeCookie : 'en';
+  
+  // Create response and set locale header for next-intl
   const response = NextResponse.next();
+  response.headers.set('x-next-intl-locale', locale);
+  
   return response;
 }
 

@@ -1,10 +1,13 @@
 import { getRequestConfig } from 'next-intl/server';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export default getRequestConfig(async () => {
-  // Get locale from cookie - next-intl uses NEXT_LOCALE by default
+  // Get locale from cookie or header (set by middleware)
   const cookieStore = await cookies();
-  let locale = cookieStore.get('NEXT_LOCALE')?.value || 
+  const headersList = await headers();
+  
+  let locale = headersList.get('x-next-intl-locale') ||
+               cookieStore.get('NEXT_LOCALE')?.value || 
                cookieStore.get('locale')?.value || 
                'en';
 

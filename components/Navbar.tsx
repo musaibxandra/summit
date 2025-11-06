@@ -2,13 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 import { navbarLinks } from '@/constants';
 import { Button } from './ui/button';
 import { Menu, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 
 import {
   NavigationMenu,
@@ -99,9 +98,8 @@ function ListItem({
 
 const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSwitching, setIsSwitching] = useState(false);
   const currentLocale = useLocale();
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
   const tNav = useTranslations('Navbar');
 
   const languages = [
@@ -110,12 +108,13 @@ const LanguageSwitcher = () => {
   ];
 
   const handleLanguageChange = async (locale: string) => {
-    if (currentLocale === locale) {
+    if (currentLocale === locale || isSwitching) {
       setIsOpen(false);
       return;
     }
 
     setIsOpen(false);
+    setIsSwitching(true);
 
     try {
       const response = await fetch('/api/set-locale', {
@@ -128,11 +127,17 @@ const LanguageSwitcher = () => {
         throw new Error('Failed to set locale');
       }
 
-      startTransition(() => {
-        router.refresh();
-      });
+      // Set cookies immediately on client side
+      document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
+      document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
+      
+      // Small delay to show "switching" message, then reload
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     } catch (error) {
       console.error('Locale switch failed:', error);
+      // Fallback: Set cookies and reload
       document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
       window.location.reload();
@@ -145,12 +150,12 @@ const LanguageSwitcher = () => {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        disabled={isPending}
+        disabled={isSwitching}
         className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <Globe className="w-4 h-4 text-gray-600" />
         <span className="text-xs font-medium text-gray-700">
-          {isPending ? tNav('switching') : currentLanguage?.name}
+          {isSwitching ? tNav('switching') : currentLanguage?.name}
         </span>
         <svg
           className={`w-3 h-3 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -178,7 +183,7 @@ const LanguageSwitcher = () => {
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                disabled={isPending}
+                disabled={isSwitching}
                 className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md disabled:opacity-50 disabled:cursor-not-allowed ${
                   currentLocale === lang.code
                     ? 'bg-blue-50 text-blue-600'
