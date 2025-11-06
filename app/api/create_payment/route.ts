@@ -20,7 +20,9 @@ interface SendPaymentResponse {
   };
 }
 
-const baseURL = 'https://apitest.myfatoorah.com';
+// Use environment variable for API URL, default to test if not set
+const baseURL =
+  process.env.MYFATOORAH_API_URL || 'https://apitest.myfatoorah.com';
 const token = process.env.MYFATOORAH_TOKEN;
 
 // GET /api/create-payment (info endpoint)
@@ -73,8 +75,13 @@ export async function POST(request: NextRequest) {
         NotificationOption: 'Lnk',
         InvoiceValue: amount,
         CustomerEmail: customerEmail,
-        CallBackUrl: 'http://localhost:3000', // Replace with your success URL
-        ErrorUrl: 'https://localhost:3000/error', // Replace with your error URL
+        CallBackUrl:
+          process.env.NEXT_PUBLIC_SUCCESS_URL ||
+          process.env.NEXT_PUBLIC_SITE_URL ||
+          'http://localhost:3000',
+        ErrorUrl:
+          process.env.NEXT_PUBLIC_ERROR_URL ||
+          `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/error`,
         Language: 'en',
       }),
     });

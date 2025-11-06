@@ -23,13 +23,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
 }) => (
-  <Card className="w-full h-auto">
-    <CardContent className="px-3">
-      <div className="relative aspect-[3/4] rounded-md bg-gray-100 mb-2 overflow-hidden">
+  <Card className="w-full h-auto border-0 shadow-sm hover:shadow-md transition-shadow">
+    <CardContent className="p-3"> {/* Reduced from px-3 + default padding */}
+      <div className="relative aspect-[4/3] rounded-md bg-gray-100 mb-3 overflow-hidden">
+        {/* Smaller image: 4:3 aspect ratio, less height */}
         <Image src={imageSrc} alt={alt} fill className="object-cover" />
       </div>
-      <CardTitle className="text-lg mt-6 mb-1">{title}</CardTitle>
-      <CardDescription className="text-sm mt-4 mb-2">
+      <CardTitle className="text-base font-semibold line-clamp-2 mb-1">
+        {title}
+      </CardTitle>
+      <CardDescription className="text-xs text-gray-600 line-clamp-3">
         {description}
       </CardDescription>
     </CardContent>
@@ -76,53 +79,42 @@ const Gathering = () => {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto py-16">
-      {' '}
-      {/* Added semantic section and padding */}
-      <div className="mb-16">
-        {' '}
-        {/* my-18 → mb-16 for standard Tailwind */}
-        <h1 className="text-4xl font-bold text-left mb-4">
-          {' '}
-          {/* Added font-bold here, removed from wrapper */}
-          Experience the HR Gathering
-        </h1>
-        <p className="text-lg text-gray-600">
-          {' '}
-          {/* Added color for better contrast */}
-          Gain insights, explore innovations, and connect with global HR leaders
-          shaping the future of work
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {' '}
-        {/* Improved responsive grid: 1 mobile, 2 tablet, 3 desktop */}
-        {features.map((feature, index) => (
-          <FeatureCard key={index} {...feature} />
-        ))}
-      </div>
-      <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-        {' '}
-        {/* Added flex-wrap for mobile stacking */}
-        <Link href="/tickets" rel="noopener noreferrer">
-          {' '}
-          {/* Fixed empty href, added rel for security */}
-          <Button className="bg-green-600 hover:bg-green-500 text-white hover:green-500 cursor-pointer">
-            <span>Get Tickets</span>
-          </Button>
-        </Link>
-        <Link href="/sponsor" rel="noopener noreferrer">
-          <Button className="bg-green-600 hover:bg-green-500 cursor-pointer">
-            {' '}
-            {/* Added variant for secondary style */}
-            <span>Sponsor or Exhibit</span>
-          </Button>
-        </Link>
-        <Link href="/nominate" rel="noopener noreferrer">
-          <Button className="bg-green-600 hover:bg-green-500 cursor-pointer">
-            <span>Nominate</span>
-          </Button>
-        </Link>
+    <section className="w-full px-4 md:px-6 py-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-left mb-3">
+            Experience the HR Gathering
+          </h1>
+          <p className="text-base text-gray-600 max-w-3xl">
+            Gain insights, explore innovations, and connect with global HR leaders
+            shaping the future of work
+          </p>
+        </div>
+
+        {/* Smaller, tighter grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+          <Link href="/tickets" rel="noopener noreferrer">
+            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              Get Tickets
+            </Button>
+          </Link>
+          <Link href="/sponsor" rel="noopener noreferrer">
+            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              Sponsor or Exhibit
+            </Button>
+          </Link>
+          <Link href="/nominate" rel="noopener noreferrer">
+            <Button className="bg-green-600 hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+              Nominate
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );

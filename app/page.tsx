@@ -9,7 +9,7 @@ import CallToAction from '@/components/CallToAction';
 
 const pageLayout = () => {
   return (
-    <main className="">
+    <>
       <Header />
       <HowItWorks />
       <Discussions />
@@ -17,7 +17,7 @@ const pageLayout = () => {
       <Gathering />
       <Sponsors />
       <CallToAction />
-    </main>
+    </>
   );
 };
 

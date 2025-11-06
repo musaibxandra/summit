@@ -16,12 +16,12 @@ export const navbarLinks = [
   },
   {
     imgURL: '/',
-    route: '/',
+    route: '/awards',
     label: 'Awards',
   },
   {
     imgURL: '/',
-    route: '/',
+    route: '/contact',
     label: 'Contact',
   },
 ];

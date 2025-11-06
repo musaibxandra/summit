@@ -24,8 +24,8 @@ export default function Sponsors() {
   ];
 
   return (
-    <div>
-      <div className="max-w-6xl mx-auto my-6 flex flex-col items-center justify-center">
+    <div className="w-full px-4 md:px-6">
+      <div className="max-w-7xl mx-auto my-6 flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-8 text-center">
           2025 Exhibitors and Sponsors
         </h1>

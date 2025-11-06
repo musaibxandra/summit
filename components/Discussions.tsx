@@ -41,8 +41,9 @@ const Discussions = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto text-left p-4">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="w-full px-4 md:px-6 py-8">
+      <div className="max-w-7xl mx-auto text-left">
+        <div className="grid lg:grid-cols-3 gap-6">
         {/* First Column - Gray Theme with Floating Circles */}
         <div className="relative p-6 bg-gradient-to-br from-violet-200 to-gray-100 rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-20 animate-pulse">
@@ -120,6 +121,7 @@ const Discussions = () => {
           <br />
           <Button className="relative z-10">READ AGENDA</Button>
         </div>
+      </div>
       </div>
     </div>
   );

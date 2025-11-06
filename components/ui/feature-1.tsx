@@ -1,7 +1,7 @@
-import { HoverBorderGradient } from './hover-border-gradient';
-import Image from 'next/image';
+
 import { Button } from './button';
 import { CardFlipHover } from './card-flip-hover';
+import Link from 'next/link';
 
 interface Feature1Props {
   title: string;
@@ -24,76 +24,79 @@ interface Feature1Props {
   };
 }
 
+// components/Feature1.tsx
+// components/Feature1.tsx
 export const Feature1 = ({
   title = 'Blocks built with Shadcn & Tailwind',
   image = '/icons/hrlogo.png',
-  description = 'Hundreds of finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.',
+  description = 'Hundreds of finely crafted components...',
   description2 = '',
   videoSrc = '/vid/hrtech.mp4',
-  firstButton = {
-    label: 'Get Tickets',
-    href: 'https://shadcnblocks.com',
-  },
-  secondButton = {
-    label: 'Sponsor or Exhibit',
-    href: 'https://shadcnblocks.com',
-  },
-  thirdButton = {
-    label: 'Nominate',
-    href: 'https://shadcnblocks.com',
-  },
+  firstButton = { label: 'Get Tickets', href: '#' },
+  secondButton = { label: 'Sponsor or Exhibit', href: '#' },
+  thirdButton = { label: 'Nominate', href: '#' },
 }: Feature1Props) => {
   return (
-    <section className="pb-4 flex items-center justify-center relative overflow-hidden min-h-screen">
-      {' '}
-      {/* pt-0 for higher centering; justify-center for not fully left-aligned */}
+    <section className="relative overflow-hidden min-h-screen w-full flex items-center">
+      {/* Full-screen video background */}
       {videoSrc && (
         <video
-          className="absolute top-0 left-0 w-full h-[85%] object-cover z-0 brightness-35"
+          className="absolute inset-0 w-full h-full object-cover brightness-35 -z-10"
           autoPlay
           loop
           muted
           playsInline
         >
           <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
       )}
-      <div className="container px-12 relative z-10">
-        {' '}
-        {/* Increased px-8 to px-16 for more left distance */}
-        <div className="flex items-center">
-          {' '}
-          {/* Changed back to items-center for vertical alignment */}
-          <div className="flex flex-col items-start text-left">
-            {' '}
-            {/* Removed justify-center; items-start for left content; vertical centering handled by parent flex */}
-            {image && (
-              <div className="flex items-center justify-center">
-                <CardFlipHover imageUrl={image} />
-              </div>
-            )}
-            <h1 className="my-6 mt-6 text-4xl text-white font-semibold text-balance lg:text-5xl">
-              {title}
-            </h1>
-            <p className="mb-8 max-w-xl text-white lg:text-lg">
-              {description}
-              <br />
-              {description2}
-            </p>
-            <div className="flex w-full flex-col items-start justify-start gap-6 sm:flex-row">
-              {' '}
-              {/* items-start for left-aligned buttons */}
-              <Button className="cursor-pointer bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 bg-[length:200%_200%] animate-gradient text-white shadow-lg hover:from-purple-600 hover:via-pink-500 hover:to-blue-500 transition-all duration-300">
-                <span>{firstButton.label}</span>
-              </Button>
-              <Button className="cursor-pointer bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 bg-[length:200%_200%] animate-gradient text-white shadow-lg hover:from-purple-600 hover:via-pink-500 hover:to-blue-500 transition-all duration-300">
-                <span>{secondButton.label}</span>
-              </Button>
-              <Button className="cursor-pointer bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 bg-[length:200%_200%] animate-gradient text-white shadow-lg hover:from-purple-600 hover:via-pink-500 hover:to-blue-500 transition-all duration-300">
-                <span>{thirdButton.label}</span>
-              </Button>
+
+      {/* Full-width content with responsive padding */}
+      <div className="w-full px-4 md:px-6">
+        <div className="max-w-7xl mx-auto flex flex-col items-start text-left space-y-4 md:space-y-6">
+          {/* Logo */}
+          {image && (
+            <div className="w-full flex justify-center md:justify-start">
+              <CardFlipHover imageUrl={image} />
             </div>
+          )}
+
+          {/* Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white leading-tight">
+            {title}
+          </h1>
+
+          {/* Description */}
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl max-w-full md:max-w-2xl">
+            {description}
+            {description2 && (
+              <>
+                <br />
+                {description2}
+              </>
+            )}
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+            >
+              <Link href={firstButton.href}>{firstButton.label}</Link>
+            </Button>
+            <Button
+              asChild
+              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+            >
+              <Link href={secondButton.href}>{secondButton.label}</Link>
+            </Button>
+            <Button
+              asChild
+              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+            >
+              <Link href={thirdButton.href}>{thirdButton.label}</Link>
+            </Button>
           </div>
         </div>
       </div>

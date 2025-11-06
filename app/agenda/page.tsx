@@ -112,7 +112,7 @@ const Agenda: React.FC = () => {
       {' '}
       {/* Adjust height as needed */}
       {/* First Column: Fixed Topics List */}
-      <div className="w-1/2 bg-gray-50 p-6 flex flex-col sticky top-0 h-full overflow-hidden">
+      <div className="w-1/2 my-12 bg-gray-50 p-6 flex flex-col sticky top-0 h-full overflow-hidden">
         <h2 className="text-xl font-bold mb-4 text-gray-800">
           Key Topics to be Discussed
         </h2>
@@ -130,7 +130,7 @@ const Agenda: React.FC = () => {
         </ul>
       </div>
       {/* Second Column: Scrollable Schedule */}
-      <div className="w-1/2 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      <div className="w-1/2 py-12 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         <h2 className="text-xl font-bold mb-4 text-gray-800">
           Conference Schedule
         </h2>

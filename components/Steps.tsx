@@ -14,8 +14,8 @@ import { HoverBorderGradient } from './ui/hover-border-gradient';
 
 export default function HowItWorks() {
   return (
-    <section className="w-full pb-18">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="w-full mt-22 px-4 md:px-6 pb-18">
+      <div className="max-w-7xl mx-auto text-center">
         <div className="grid gap-28 lg:grid-cols-2">
           <div className="">
             <h2 className="flex text-left text-3xl font-bold">

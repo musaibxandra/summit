@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useTransition } from 'react'; // Add useTransition here
+import React, { useState, useTransition } from 'react';
 import { navbarLinks } from '@/constants';
 import { Button } from './ui/button';
 import { Menu, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useTranslations, useLocale } from 'next-intl'; // Add useLocale here
-import { useRouter } from 'next/navigation'; // Add this import
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 import {
   NavigationMenu,
@@ -41,13 +41,8 @@ const attendeesItems = [
   { title: 'Venue', href: '/venue', description: 'Travel Location.' },
   {
     title: 'Propose To Speak',
-    href: '/propose-to-speak',
+    href: '/speak',
     description: 'Let your voice be known.',
-  },
-  {
-    title: 'Plan Your Trip',
-    href: '/plan-trip',
-    description: 'Travel and accommodation information for attendees.',
   },
 ];
 
@@ -73,16 +68,19 @@ function ListItem({
   title,
   children,
   href,
+  onClickItem,
   ...props
 }: React.ComponentPropsWithoutRef<'li'> & {
   title: string;
   children?: React.ReactNode;
   href: string;
+  onClickItem?: () => void;
 }) {
   return (
     <li {...props} className="py-2 border-b border-gray-100 last:border-b-0">
       <Link
         href={href}
+        onClick={onClickItem}
         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
       >
         <div className="text-sm leading-none font-medium text-gray-900">
@@ -108,13 +106,12 @@ const LanguageSwitcher = () => {
   const handleLanguageChange = async (locale: string) => {
     if (currentLocale === locale) {
       setIsOpen(false);
-      return; // No-op if already selected
+      return;
     }
 
-    setIsOpen(false); // Close dropdown immediately for UX
+    setIsOpen(false);
 
     try {
-      // Set cookie via API server-side
       const response = await fetch('/api/set-locale', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -125,13 +122,11 @@ const LanguageSwitcher = () => {
         throw new Error('Failed to set locale');
       }
 
-      // Smooth refresh with transition
       startTransition(() => {
         router.refresh();
       });
     } catch (error) {
       console.error('Locale switch failed:', error);
-      // Fallback: Client-side cookie + reload
       document.cookie = `locale=${locale}; path=/; max-age=31536000`;
       window.location.reload();
     }
@@ -143,7 +138,7 @@ const LanguageSwitcher = () => {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        disabled={isPending} // Add pending state
+        disabled={isPending}
         className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <Globe className="w-4 h-4 text-gray-600" />
@@ -176,7 +171,7 @@ const LanguageSwitcher = () => {
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                disabled={isPending} // Add pending state
+                disabled={isPending}
                 className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md disabled:opacity-50 disabled:cursor-not-allowed ${
                   currentLocale === lang.code
                     ? 'bg-blue-50 text-blue-600'
@@ -208,11 +203,16 @@ const LanguageSwitcher = () => {
 
 const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [navigationValue, setNavigationValue] = useState('');
   const t = useTranslations('HomePage');
 
+  const closeNavigationMenu = () => {
+    setNavigationValue('');
+  };
+
   return (
-    <header className="px-4 md:px-6 py-3 bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto">
+    <header className="w-full px-4 md:px-6 py-3 bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Image
@@ -224,23 +224,23 @@ const Navbar = () => {
             priority
             sizes="(max-width: 768px) 80px, 94px"
           />
-          <span className="text-lg font-bold text-gray-900 hidden sm:block">
+          <span className="text-base lg:text-lg font-bold text-gray-900 hidden sm:block">
             {t('title')}
           </span>
         </Link>
 
         {/* Desktop Menu - Centered Links */}
-        <div className="hidden md:flex flex-1 items-center justify-center px-4">
-          <NavigationMenu orientation="horizontal" className="flex">
-            <NavigationMenuList className="gap-1 lg:gap-3">
+        <div className="hidden lg:flex flex-1 items-center justify-center px-2 lg:px-4 min-w-0">
+          <NavigationMenu orientation="horizontal" value={navigationValue} onValueChange={setNavigationValue}>
+            <NavigationMenuList className="gap-1 lg:gap-2 xl:gap-3">
               {navbarLinks.map((item) => {
                 if (item.label === 'Attendees') {
                   return (
-                    <NavigationMenuItem key={item.label}>
+                    <NavigationMenuItem key={item.label} value="attendees">
                       <NavigationMenuTrigger
                         className={cn(
                           navigationMenuTriggerStyle(),
-                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
+                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-sm lg:text-base lg:px-2 xl:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
                         )}
                       >
                         {item.label}
@@ -252,6 +252,7 @@ const Navbar = () => {
                               key={subItem.title}
                               title={subItem.title}
                               href={subItem.href}
+                              onClickItem={closeNavigationMenu}
                             >
                               {subItem.description}
                             </ListItem>
@@ -263,11 +264,11 @@ const Navbar = () => {
                 }
                 if (item.label === 'Sponsor or Exhibit') {
                   return (
-                    <NavigationMenuItem key={item.label}>
+                    <NavigationMenuItem key={item.label} value="sponsor">
                       <NavigationMenuTrigger
                         className={cn(
                           navigationMenuTriggerStyle(),
-                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-base lg:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
+                          'text-gray-600 hover:text-gray-900 font-bold transition-colors px-2 py-2 text-sm lg:text-base lg:px-2 xl:px-3 rounded-md hover:bg-gray-200 data-[state=open]:bg-gray-100 whitespace-nowrap'
                         )}
                       >
                         {item.label}
@@ -279,6 +280,7 @@ const Navbar = () => {
                               key={subItem.title}
                               title={subItem.title}
                               href={subItem.href}
+                              onClickItem={closeNavigationMenu}
                             >
                               {subItem.description}
                             </ListItem>
@@ -294,7 +296,7 @@ const Navbar = () => {
                       href={item.route}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        'text-gray-600 hover:text-gray-900 transition-colors text-base lg:px-3 font-bold rounded-md hover:bg-gray-200 whitespace-nowrap'
+                        'text-gray-600 hover:text-gray-900 transition-colors text-sm lg:text-base lg:px-2 xl:px-3 font-bold rounded-md hover:bg-gray-200 whitespace-nowrap'
                       )}
                     >
                       {item.label}
@@ -307,17 +309,17 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Buttons - Right Aligned */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-1.5 lg:gap-2 flex-shrink-0">
           <LanguageSwitcher />
           <Button
             asChild
-            className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap"
+            className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
           >
             <Link href="/get_tickets">Tickets</Link>
           </Button>
           <Button
             asChild
-            className="bg-green-600 px-4 py-2 text-sm md:px-5 hover:bg-green-500 whitespace-nowrap"
+            className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
           >
             <Link href="/nominate">Nominate</Link>
           </Button>
@@ -326,7 +328,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="sm" className="md:hidden">
+            <Button variant="ghost" size="sm" className="lg:hidden">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -363,6 +365,7 @@ const Navbar = () => {
                                 key={subItem.title}
                                 title={subItem.title}
                                 href={subItem.href}
+                                onClickItem={() => setIsMobileOpen(false)}
                               >
                                 {subItem.description}
                               </ListItem>
@@ -388,6 +391,7 @@ const Navbar = () => {
                                 key={subItem.title}
                                 title={subItem.title}
                                 href={subItem.href}
+                                onClickItem={() => setIsMobileOpen(false)}
                               >
                                 {subItem.description}
                               </ListItem>
@@ -402,6 +406,7 @@ const Navbar = () => {
                       <Link
                         href={item.route}
                         className="block text-base font-bold text-gray-900 hover:text-gray-600 py-2 hover:bg-gray-100 rounded-md px-2 transition-colors"
+                        onClick={() => setIsMobileOpen(false)}
                       >
                         {item.label}
                       </Link>

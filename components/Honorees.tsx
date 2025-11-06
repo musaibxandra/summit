@@ -109,7 +109,7 @@ const SpeakerCard: React.FC<Speaker> = ({
           target="_blank"
           className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
         >
-          Try now →
+          Check out →
         </CardItem>
         <CardItem
           translateZ={20}
@@ -129,7 +129,8 @@ const SpeakerCard: React.FC<Speaker> = ({
 
 const Honorees: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto mt-24">
+    <div className="w-full px-4 md:px-6 my-24">
+      <div className="max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold">2025 Honored Speakers</h1>
       <div className="grid lg:grid-cols-4 mt-6 gap-6">
         {speakers.map((speaker, index) => (
@@ -151,6 +152,7 @@ const Honorees: React.FC = () => {
         >
           PROPOSE TO SPEAK
         </Button>
+      </div>
       </div>
     </div>
   );
