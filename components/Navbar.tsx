@@ -59,7 +59,7 @@ const getSponsorItems = (t: any) => [
   },
   {
     title: t('exhibitionEnquiry'),
-    href: '/exhibition',
+    href: '/enquiry',
     description: t('exhibitionEnquiryDescription'),
   },
   {
