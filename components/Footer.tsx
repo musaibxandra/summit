@@ -118,7 +118,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/exhibition"
+                  href="/enquiry"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   {t('exhibitionEnquiry')}
