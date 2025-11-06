@@ -34,7 +34,7 @@ const Venue: React.FC = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Location & Accessibility</h2>
             <p className="text-gray-700 leading-relaxed">
               Millennium Plaza Downtown Hotel is an iconic landmark centrally located on Sheikh Zayed Road in Dubai, 
-              directly across from the Museum of the Future, the World Trade Centre, and the city's main business district. 
+              directly across from the Museum of the Future, the World Trade Centre, and the city&apos;s main business district. 
               We are just minutes away from major attractions including Dubai Mall, Burj Khalifa, and The Dubai Frame. 
               The hotel is also a 15-minute drive from the Gold Souk and Spice Market in Deira, and 20 minutes from 
               Kite Beach, accessible via our daily shuttle service.
@@ -73,7 +73,7 @@ const Venue: React.FC = () => {
           Their experienced event planning team is here to ensure every meeting and function runs smoothly—whether 
           in dynamic meeting rooms or the expansive ballroom, which accommodates up to 1,400 guests. Stay connected 
           with complimentary Wi-Fi throughout the hotel, and make use of the fully equipped business center for 
-          professional needs. When it's time to unwind, enjoy a refreshing dip in the outdoor pool or catch up 
+          professional needs. When it&apos;s time to unwind, enjoy a refreshing dip in the outdoor pool or catch up 
           with colleagues over drinks or a casual meeting at one of the inviting restaurants and bars.
         </p>
         

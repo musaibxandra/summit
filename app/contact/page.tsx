@@ -101,14 +101,14 @@ const Contact: React.FC = () => {
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">Get in Touch</h1>
           <p className="text-lg text-gray-600">
-            We'd love to hear from you. Fill out the form below and we'll get back to you shortly.
+            We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you shortly.
           </p>
         </div>
 
         <div className="bg-white shadow-xl rounded-lg p-8 md:p-10">
           {submitSuccess && (
             <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md text-center">
-              Thank you! Your message has been sent successfully. We'll get back to you soon.
+              Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
             </div>
           )}
 
