@@ -42,7 +42,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       
       {/* Content Section */}
       <div className="p-4 sm:p-5">
-        <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-green-600 transition-colors duration-300">
+        <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors duration-300">
           {title}
         </CardTitle>
         <CardDescription className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
@@ -110,17 +110,17 @@ const Gathering = () => {
 
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           <Link href="/get_tickets" rel="noopener noreferrer">
-            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
               {t('getTickets')}
             </Button>
           </Link>
           <Link href="/sponsorship" rel="noopener noreferrer">
-            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
               {t('sponsorOrExhibit')}
             </Button>
           </Link>
           <Link href="/nominate" rel="noopener noreferrer">
-            <Button className="bg-green-600 cursor-pointer hover:bg-green-500 text-white text-sm px-5 py-2 h-9">
+            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
               {t('nominate')}
             </Button>
           </Link>

@@ -327,13 +327,13 @@ const Navbar = () => {
           <LanguageSwitcher />
           <Button
             asChild
-            className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
+            className="bg-[#002366] px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-[#001a4d] whitespace-nowrap"
           >
             <Link href="/get_tickets">{tNav('tickets')}</Link>
           </Button>
           <Button
             asChild
-            className="bg-green-600 px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-green-500 whitespace-nowrap"
+            className="bg-[#002366] px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-[#001a4d] whitespace-nowrap"
           >
             <Link href="/nominate">{tNav('nominate')}</Link>
           </Button>
@@ -447,14 +447,14 @@ const Navbar = () => {
                   </div>
                   <Button
                     asChild
-                    className="w-full bg-green-600 px-5 hover:bg-green-500"
+                    className="w-full bg-[#002366] px-5 hover:bg-[#001a4d]"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/get_tickets">{tNav('tickets')}</Link>
                   </Button>
                   <Button
                     asChild
-                    className="w-full bg-green-600 px-5 hover:bg-green-500"
+                    className="w-full bg-[#002366] px-5 hover:bg-[#001a4d]"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/nominate">{tNav('nominate')}</Link>

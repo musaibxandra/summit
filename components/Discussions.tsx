@@ -96,7 +96,7 @@ const Discussions = () => {
           ))}
           <br />
           <Link href="/agenda">
-          <Button className="relative cursor-pointer z-10">{t('readAgenda')}</Button>
+          <Button className="relative bg-[#002366] cursor-pointer z-10">{t('readAgenda')}</Button>
           </Link>
         </div>
 
@@ -125,7 +125,7 @@ const Discussions = () => {
           <br />
           <br />
           <Link href="/agenda">
-          <Button className="relative cursor-pointer z-10">{t('readAgenda')}</Button>
+          <Button className="relative cursor-pointer bg-[#002366] z-10">{t('readAgenda')}</Button>
           </Link>
         </div>
       </div>

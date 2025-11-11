@@ -34,7 +34,7 @@ export default function HRSummitPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-blue-600 text-white py-16">
+      <header className="bg-[#002366] text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Brand Engagement Opportunities
@@ -58,10 +58,10 @@ export default function HRSummitPage() {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors">
+            <button className="px-8 py-3 bg-[#002366] text-white font-semibold rounded hover:bg-[#001f4d] transition-colors">
               Become a Sponsor
             </button>
-            <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+            <button className="px-8 py-3 bg-white text-[#002366] font-semibold rounded border-2 border-[#002366] hover:bg-blue-50 transition-colors">
               Request to Exhibit
             </button>
           </div>
@@ -85,7 +85,7 @@ export default function HRSummitPage() {
                 key={index}
                 className="flex gap-6 p-6 bg-gray-50 rounded-lg border border-gray-200"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#002366] text-white rounded flex items-center justify-center">
                   {benefit.icon}
                 </div>
                 <div>
@@ -112,10 +112,10 @@ export default function HRSummitPage() {
               Position your brand at the forefront of HR innovation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors">
+              <button className="px-8 py-3 bg-[#002366] text-white font-semibold rounded hover:bg-[#001f4d] transition-colors">
                 Become a Sponsor
               </button>
-              <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+              <button className="px-8 py-3 bg-white text-[#002366] font-semibold rounded border-2 border-[#002366] hover:bg-blue-50 transition-colors">
                 Request to Exhibit
               </button>
             </div>

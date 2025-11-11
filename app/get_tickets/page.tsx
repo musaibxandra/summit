@@ -119,7 +119,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
             Complete Your Registration
           </h2>
           <p className="text-lg md:text-xl text-gray-600 font-semibold">
-            Total: <span className="text-green-600">USD {total.toFixed(2)}</span>
+            Total: <span className="text-[#002366]">USD {total.toFixed(2)}</span>
           </p>
         </div>
 
@@ -135,7 +135,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 value={formData.firstName}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
               />
             </div>
             <div>
@@ -148,7 +148,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 value={formData.lastName}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               value={formData.jobTitle}
               onChange={handleChange}
               required
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
             />
           </div>
 
@@ -175,7 +175,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               value={formData.attendeeBirdCity}
               onChange={handleChange}
               required
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
             />
           </div>
 
@@ -189,7 +189,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
             />
           </div>
 
@@ -203,7 +203,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 onChange={handleChange}
                 placeholder="Bahrain +973"
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
               />
             </div>
             <div>
@@ -213,7 +213,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 value={formData.country}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all bg-white"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all bg-white"
               >
                 <option value="">Select Country</option>
                 <option value="Bahrain">Bahrain</option>
@@ -231,7 +231,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 value={formData.city}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
               />
             </div>
             <div>
@@ -244,7 +244,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
                 value={formData.howDidYouHear}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
               />
             </div>
           </div>
@@ -255,7 +255,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               name="subscribeNewsletter"
               checked={formData.subscribeNewsletter}
               onChange={handleChange}
-              className="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
+              className="mt-1 rounded border-gray-300 text-[#002366] focus:ring-[#002366]"
             />
             <label className="text-sm text-gray-700 leading-relaxed">
               Subscribe to The World HR Summit & Expo – Global (2025) Newsletter?
@@ -269,7 +269,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               checked={formData.termsAccepted}
               onChange={handleChange}
               required
-              className="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
+              className="mt-1 rounded border-gray-300 text-[#002366] focus:ring-[#002366]"
             />
             <label className="text-sm text-gray-700 leading-relaxed">
               Terms, conditions and privacy. By continuing with the registration
@@ -283,13 +283,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               type="button"
               variant="outline"
               onClick={onBack}
-              className="border-green-500 text-green-600 hover:bg-green-50 px-6 md:px-8 py-3 text-base md:text-lg font-semibold"
+              className="border-[#002366] text-[#002366] hover:bg-[#002366] hover:bg-opacity-10 px-6 md:px-8 py-3 text-base md:text-lg font-semibold"
             >
               Back
             </Button>
             <Button
               type="submit"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-[#002366] hover:bg-[#001a4d] text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               Submit Registration
             </Button>
@@ -436,12 +436,12 @@ const Tickets = () => {
               key={option.id}
               className={`group p-6 md:p-8 border-2 rounded-xl cursor-pointer transition-all duration-300 bg-white shadow-sm hover:shadow-lg ${
                 selectedPass === option.id
-                  ? 'border-green-500 bg-green-50 shadow-lg scale-105'
-                  : 'border-gray-200 hover:border-green-300 hover:scale-102'
+                  ? 'border-[#002366] bg-[#002366] bg-opacity-10 shadow-lg scale-105'
+                  : 'border-gray-200 hover:border-[#002366] hover:scale-102'
               }`}
               onClick={() => handlePassSelect(option.id)}
             >
-              <h3 className="font-bold text-lg md:text-xl mb-3 text-gray-900 group-hover:text-green-600 transition-colors">
+              <h3 className="font-bold text-lg md:text-xl mb-3 text-gray-900 group-hover:text-[#002366] transition-colors">
                 {option.title}
               </h3>
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -475,7 +475,7 @@ const Tickets = () => {
                       <h3 className="font-semibold text-base md:text-lg text-gray-900 mb-1">
                         {tier.name}
                       </h3>
-                      <p className="text-green-600 font-bold text-lg md:text-xl">
+                      <p className="text-[#002366] font-bold text-lg md:text-xl">
                         USD {tier.price.toFixed(2)}
                       </p>
                     </div>
@@ -488,7 +488,7 @@ const Tickets = () => {
                         onChange={(e) =>
                           updateQuantity(tier.id, parseInt(e.target.value) || 0)
                         }
-                        className="w-24 p-3 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 font-semibold"
+                        className="w-24 p-3 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] font-semibold"
                       />
                     </div>
                   </div>
@@ -498,7 +498,7 @@ const Tickets = () => {
               <div className="mt-6 p-5 md:p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border border-green-200">
                 <div className="flex justify-between items-center">
                   <h3 className="font-bold text-lg md:text-xl text-gray-900">Subtotal:</h3>
-                  <p className="text-green-700 font-bold text-xl md:text-2xl">
+                  <p className="text-[#002366] font-bold text-xl md:text-2xl">
                     USD {total.toFixed(2)}
                   </p>
                 </div>
@@ -515,8 +515,8 @@ const Tickets = () => {
                     key={discount.id}
                     className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       selectedDiscount === discount.id
-                        ? 'border-green-500 bg-green-50'
-                        : 'border-gray-200 hover:border-green-300 hover:bg-gray-50'
+                        ? 'border-[#002366] bg-blue-200 bg-opacity-10'
+                        : 'border-gray-200 hover:border-[#002366] hover:bg-gray-50'
                     } ${
                       discount.id === 'academic' && selectedPass !== 'general'
                         ? 'opacity-50 cursor-not-allowed'
@@ -532,7 +532,7 @@ const Tickets = () => {
                       disabled={
                         discount.id === 'academic' && selectedPass !== 'general'
                       }
-                      className="mt-1 mr-3 text-green-600 focus:ring-green-500"
+                      className="mt-1 mr-3 text-[#002366] focus:ring-[#002366]"
                     />
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900 mb-1">{discount.name}</p>
@@ -546,7 +546,7 @@ const Tickets = () => {
                             placeholder="Enter email for verification"
                             value={emailForDiscount}
                             onChange={(e) => setEmailForDiscount(e.target.value)}
-                            className="mt-2 w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                            className="mt-2 w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366]"
                           />
                         )}
                     </div>
@@ -558,13 +558,13 @@ const Tickets = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 onClick={handleProceedToCheckout}
-                className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                className="w-full sm:w-auto bg-[#002366] hover:bg-[#001a4d] text-white px-8 py-3 md:py-4 text-base md:text-lg cursor-pointer font-semibold shadow-lg hover:shadow-xl transition-all"
               >
                 Proceed to Checkout (USD {total.toFixed(2)})
               </Button>
               <Button
                 variant="outline"
-                className="w-full sm:w-auto border-green-500 text-green-600 hover:bg-green-50 px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
+                className="w-full sm:w-auto border-[#002366] text-[#002366] hover:bg-[#e6f0ff] px-8 py-3 md:py-4 cursor-text-base md:text-lg font-semibold"
               >
                 Download Brochure
               </Button>
@@ -579,7 +579,7 @@ const Tickets = () => {
             </p>
             <Button
               onClick={() => setShowPricing(true)}
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-[#002366] hover:bg-[#001a4d] text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               View Pricing
             </Button>

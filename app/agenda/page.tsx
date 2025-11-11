@@ -118,7 +118,7 @@ const Agenda: React.FC = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
             Shaping Tomorrow&apos;s HR
           </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-green-600 mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#002366] mb-8">
             Join the World HR Summit & Expo – Global 2025
           </h2>
           <div className="max-w-4xl mx-auto space-y-4 text-lg md:text-xl text-gray-700 leading-relaxed">

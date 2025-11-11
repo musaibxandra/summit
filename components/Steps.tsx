@@ -82,7 +82,7 @@ export default function HowItWorks() {
                 href="https://login.xing.com/?locale=en&dest_url=https%3A%2F%2Fwww.xing.com%2Fsocial%2Fshare%2Fspi%3Furl%3Dhttps%253A%252F%252Fworldhr-summit.com%252F"
                 target="_blank"
               >
-                <Button className="cursor-pointer">
+                <Button className="cursor-pointer bg-[#002366]">
                   <span>Xing</span>
                 </Button>
               </Link>
@@ -90,7 +90,7 @@ export default function HowItWorks() {
                 href="https://x.com/intent/tweet?text=%20https://worldhr-summit.com/"
                 target="_blank"
               >
-                <Button className="cursor-pointer">
+                <Button className="cursor-pointer bg-[#002366]">
                   <TwitterIcon />
                   <span>X</span>
                 </Button>
@@ -99,13 +99,13 @@ export default function HowItWorks() {
                 href="https://www.linkedin.com/shareArticle?mini=true&url=https://worldhr-summit.com/&title=World%20HR%20Summit%20%26%20Expo%202025&summary=&source=https://worldhr-summit.com/"
                 target="_blank"
               >
-                <Button className="cursor-pointer">
+                <Button className="cursor-pointer bg-[#002366]">
                   <LinkedinIcon />
                   <span>LinkedIn</span>
                 </Button>
               </Link>
               <Link href="mailto:maqdoom114@gmail.com" target="_blank">
-                <Button className="cursor-pointer">
+                <Button className="cursor-pointer bg-[#002366]">
                   <Mail />
                   <span>Email</span>
                 </Button>
