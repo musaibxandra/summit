@@ -218,11 +218,11 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Image
-            src="/icons/hrlogo.png"
+            src="/icons/hrlogo.jpeg"
             alt="World HR Summit Logo"
-            width={94}
-            height={54}
-            className="hover:opacity-80 transition-opacity"
+            width={214}
+            height={164}
+            className="hover:opacity-80 py-1 transition-opacity"
             priority
             sizes="(max-width: 768px) 80px, 94px"
           />

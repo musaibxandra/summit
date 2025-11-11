@@ -11,7 +11,7 @@ const Header = () => {
     <div>
       <Feature1
         title={t('title')}
-        image="/icons/hrlogo.png"
+        image="/icons/hrlogo.jpeg"
         description={t('description')}
         description2={t('description2')}
         firstButton={{

@@ -18,7 +18,7 @@ export const CardFlipHover = ({ imageUrl }: CardFlipHoverProps) => {
 
   return (
     <div
-      className="h-[150px] w-[210px] [perspective:1000px]"
+      className="h-[110px] w-[370px] [perspective:1000px]"
       onMouseEnter={handleHover}
     >
       {' '}
