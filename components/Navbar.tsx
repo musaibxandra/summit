@@ -351,7 +351,7 @@ const Navbar = () => {
             <SheetHeader className="border-b border-gray-200 px-6 py-4">
               <SheetTitle className="flex items-center gap-2">
                 <Image
-                  src="/icons/hrlogo.png"
+                  src="/icons/hrlogo.jpeg"
                   alt="World HR Summit Logo"
                   width={40}
                   height={24}
