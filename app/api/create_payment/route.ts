@@ -22,7 +22,7 @@ interface SendPaymentResponse {
 
 // Use environment variable for API URL, default to test if not set
 const baseURL =
-  process.env.MYFATOORAH_API_URL || process.env.MYFATOORAH__URL;
+  process.env.MYFATOORAH_API_URL;
 const token = process.env.MYFATOORAH_TOKEN;
 
 // GET /api/create_payment (info endpoint)
