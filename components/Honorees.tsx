@@ -137,14 +137,14 @@ const Honorees: React.FC = () => {
   return (
     <div className="w-full px-4 md:px-6 my-24">
       <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold">{t('title')}</h1>
-      <div className="grid lg:grid-cols-4 mt-6 gap-6">
-        {speakers.map((speaker, index) => (
-          <div key={index}>
-            <SpeakerCard {...speaker} t={t} />
-          </div>
-        ))}
-      </div>
+        <h1 className="text-3xl font-bold">{t('title')}</h1>
+        <div className="grid lg:grid-cols-4 mt-6 gap-6">
+          {speakers.map((speaker, index) => (
+            <div key={index}>
+              <SpeakerCard {...speaker} t={t} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

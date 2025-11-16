@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'World HR Summit 2025',
     description: 'Welcome to the World HR Summit 2025',
-    images: ['/icons/hrse.avif']
-  }
+    images: ['/icons/hrse.avif'],
+  },
 };
 
 export default async function RootLayout({
@@ -45,7 +45,11 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className="overflow-x-hidden">
+    <html
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      className="overflow-x-hidden"
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >

@@ -3426,7 +3426,7 @@ SOFTWARE.
       if (('TURBOPACK compile-time truthy', 1)) {
         // Need to read during render. The attributes will be gone after commit.
         const ssrError = readSsrError();
-         
+
         (0, _react.useEffect)(() => {
           if (ssrError !== null) {
             // TODO(veil): Include original Owner Stack (NDX-905)

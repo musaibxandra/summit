@@ -13,12 +13,12 @@ export default function Enquiry() {
       </h2>
 
       <p className="text-gray-700 mb-6 leading-relaxed">
-        Our exclusive packages offer premium visibility, high-impact networking, and
-        opportunities to position your company at the forefront of HR innovation.
-        Elevate your brand and shape the future of work—explore our partnership
-        opportunities today! Foster global networking opportunities. Boost your brand
-        visibility and position your company as a leader in the HR ecosystem by
-        becoming a sponsor.
+        Our exclusive packages offer premium visibility, high-impact networking,
+        and opportunities to position your company at the forefront of HR
+        innovation. Elevate your brand and shape the future of work—explore our
+        partnership opportunities today! Foster global networking opportunities.
+        Boost your brand visibility and position your company as a leader in the
+        HR ecosystem by becoming a sponsor.
       </p>
 
       <div className="mb-6">
@@ -51,7 +51,8 @@ export default function Enquiry() {
 
       <div className="bg-gray-50 p-4 rounded-lg">
         <p className="text-lg font-semibold text-gray-900">
-          Sponsorship Package Cost: <span className="text-blue-600">{packageCost}</span>
+          Sponsorship Package Cost:{' '}
+          <span className="text-blue-600">{packageCost}</span>
         </p>
         {selectedEvent && (
           <p className="text-sm text-gray-600 mt-1">

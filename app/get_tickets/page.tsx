@@ -60,7 +60,11 @@ interface CheckoutFormProps {
   onBack: () => void;
 }
 
-const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) => {
+const CheckoutForm: React.FC<CheckoutFormProps> = ({
+  total,
+  onSubmit,
+  onBack,
+}) => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -76,10 +80,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value, type } = e.target;
-    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : false;
+    const checked =
+      type === 'checkbox' ? (e.target as HTMLInputElement).checked : false;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -119,11 +126,15 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
             Complete Your Registration
           </h2>
           <p className="text-lg md:text-xl text-gray-600 font-semibold">
-            Total: <span className="text-[#002366]">USD {total.toFixed(2)}</span>
+            Total:{' '}
+            <span className="text-[#002366]">USD {total.toFixed(2)}</span>
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 md:space-y-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700">
@@ -154,7 +165,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-2 text-gray-700">Job Title *</label>
+            <label className="block text-sm font-semibold mb-2 text-gray-700">
+              Job Title *
+            </label>
             <input
               type="text"
               name="jobTitle"
@@ -189,13 +202,16 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               value={formData.email}
               onChange={handleChange}
               required
+              autoComplete="email"
               className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-700">Phone *</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-700">
+                Phone *
+              </label>
               <input
                 type="tel"
                 name="phone"
@@ -207,7 +223,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-700">Country *</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-700">
+                Country *
+              </label>
               <select
                 name="country"
                 value={formData.country}
@@ -224,7 +242,9 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-700">City *</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-700">
+                City *
+              </label>
               <input
                 type="text"
                 name="city"
@@ -258,7 +278,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
               className="mt-1 rounded border-gray-300 text-[#002366] focus:ring-[#002366]"
             />
             <label className="text-sm text-gray-700 leading-relaxed">
-              Subscribe to The World HR Summit & Expo – Global (2025) Newsletter?
+              Subscribe to The World HR Summit & Expo – Global (2025)
+              Newsletter?
             </label>
           </div>
 
@@ -289,7 +310,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ total, onSubmit, onBack }) 
             </Button>
             <Button
               type="submit"
-              className="bg-[#002366] hover:bg-[#001a4d] text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               Submit Registration
             </Button>
@@ -330,7 +351,8 @@ const Tickets = () => {
         let price = tier.price;
         if (selectedDiscount && selectedPass === 'general') {
           const discount =
-            specialDiscounts.find((d) => d.id === selectedDiscount)?.discount || 0;
+            specialDiscounts.find((d) => d.id === selectedDiscount)?.discount ||
+            0;
           price = price * (1 - discount / 100);
         }
         subtotal += price * qty;
@@ -388,13 +410,12 @@ const Tickets = () => {
         throw new Error('Unexpected response format (not JSON)');
       }
 
-      const { paymentUrl } = paymentData;
+      const { paymentUrl, invoiceId } = paymentData;
       if (!paymentUrl) {
         throw new Error('No payment URL returned');
       }
 
       window.open(paymentUrl, '_blank');
-      alert('Registration submitted! Redirecting to payment...');
 
       setShowCheckout(false);
       setQuantities({});
@@ -426,7 +447,8 @@ const Tickets = () => {
             Attendee Registration
           </h1>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Select your pass type and complete your registration for the World HR Summit & Expo – Global 2025
+            Select your pass type and complete your registration for the World
+            HR Summit & Expo – Global 2025
           </p>
         </div>
 
@@ -455,7 +477,9 @@ const Tickets = () => {
           <>
             <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8 mb-6 md:mb-8 shadow-sm">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Select Pricing Tier</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                  Select Pricing Tier
+                </h2>
                 <button
                   onClick={() => setShowPricing(false)}
                   className="text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -480,7 +504,9 @@ const Tickets = () => {
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
-                      <label className="text-sm font-medium text-gray-700">Quantity:</label>
+                      <label className="text-sm font-medium text-gray-700">
+                        Quantity:
+                      </label>
                       <input
                         type="number"
                         min="0"
@@ -497,7 +523,9 @@ const Tickets = () => {
 
               <div className="mt-6 p-5 md:p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border border-green-200">
                 <div className="flex justify-between items-center">
-                  <h3 className="font-bold text-lg md:text-xl text-gray-900">Subtotal:</h3>
+                  <h3 className="font-bold text-lg md:text-xl text-gray-900">
+                    Subtotal:
+                  </h3>
                   <p className="text-[#002366] font-bold text-xl md:text-2xl">
                     USD {total.toFixed(2)}
                   </p>
@@ -535,9 +563,13 @@ const Tickets = () => {
                       className="mt-1 mr-3 text-[#002366] focus:ring-[#002366]"
                     />
                     <div className="flex-1">
-                      <p className="font-semibold text-gray-900 mb-1">{discount.name}</p>
+                      <p className="font-semibold text-gray-900 mb-1">
+                        {discount.name}
+                      </p>
                       {discount.note && (
-                        <p className="text-sm text-gray-600 mb-2">{discount.note}</p>
+                        <p className="text-sm text-gray-600 mb-2">
+                          {discount.note}
+                        </p>
                       )}
                       {discount.id === 'academic' &&
                         selectedDiscount === discount.id && (
@@ -545,7 +577,9 @@ const Tickets = () => {
                             type="email"
                             placeholder="Enter email for verification"
                             value={emailForDiscount}
-                            onChange={(e) => setEmailForDiscount(e.target.value)}
+                            onChange={(e) =>
+                              setEmailForDiscount(e.target.value)
+                            }
                             className="mt-2 w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366]"
                           />
                         )}

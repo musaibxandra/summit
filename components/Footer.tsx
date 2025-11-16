@@ -98,7 +98,9 @@ const Footer = () => {
 
           {/* Column 2: Get Involved */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">{t('getInvolved')}</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">
+              {t('getInvolved')}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -137,7 +139,9 @@ const Footer = () => {
 
           {/* Column 3: Explore More */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-xl font-bold mb-4 text-white">{t('exploreMore')}</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">
+              {t('exploreMore')}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -176,10 +180,10 @@ const Footer = () => {
 
           {/* Column 4: Stay Updated */}
           <motion.div variants={fadeInUp} className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4 text-white">{t('stayUpdated')}</h3>
-            <p className="text-gray-300 mb-4">
-              {t('signUpText')}
-            </p>
+            <h3 className="text-xl font-bold mb-4 text-white">
+              {t('stayUpdated')}
+            </h3>
+            <p className="text-gray-300 mb-4">{t('signUpText')}</p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
@@ -218,12 +222,8 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className="text-gray-400 mt-6">
-            {t('mikonoDescription')}
-          </p>
-          <p className="text-gray-400 mt-2">
-            {t('worldHRCopyright')}
-          </p>
+          <p className="text-gray-400 mt-6">{t('mikonoDescription')}</p>
+          <p className="text-gray-400 mt-2">{t('worldHRCopyright')}</p>
         </div>
       </div>
     </footer>

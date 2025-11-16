@@ -919,7 +919,7 @@
       }
       // This shouldn't cause any issues related to conditional rendering because
       // the environment will be consistent for the render.
-       
+
       return (0, _react.useContext)(
         _hooksclientcontextsharedruntime.PathnameContext
       );
@@ -1412,7 +1412,6 @@
      */ const DIGEST =
       '' + _httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE + ';404';
     function notFound() {
-       
       const error = Object.defineProperty(
         new Error(DIGEST),
         '__NEXT_ERROR_CODE',
@@ -5162,7 +5161,7 @@
           }
         );
       }
-       
+
       const error = Object.defineProperty(
         new Error(DIGEST),
         '__NEXT_ERROR_CODE',
@@ -5237,7 +5236,7 @@
           }
         );
       }
-       
+
       const error = Object.defineProperty(
         new Error(DIGEST),
         '__NEXT_ERROR_CODE',
@@ -8407,7 +8406,7 @@
       if (('TURBOPACK compile-time truthy', 1)) {
         // this conditional is only for dead-code elimination which
         // isn't a runtime conditional only build-time so ignore hooks rule
-         
+
         (0, _react.useEffect)(() => {
           pathnameRef.current = pathname;
           const appIsrManifest = appIsrManifestRef.current;
@@ -8766,10 +8765,9 @@
         };
       }, [canonicalUrl]);
       if (('TURBOPACK compile-time truthy', 1)) {
-         
         const { cache, prefetchCache, tree } = state;
         // This hook is in a conditional but that is ok because `process.env.NODE_ENV` never changes
-         
+
         (0, _react.useEffect)(() => {
           // Add `window.nd` for debugging purposes.
           // This is not meant for use in applications as concurrent rendering will affect the cache/tree/router.
@@ -12560,7 +12558,6 @@
       if (actionQueue.pending !== null) {
         actionQueue.pending = actionQueue.pending.next;
         if (actionQueue.pending !== null) {
-           
           runAction({
             actionQueue,
             action: actionQueue.pending,

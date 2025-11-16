@@ -1,34 +1,44 @@
 import React from 'react';
-import { TrendingUp, MessageSquare, Users, Lightbulb, Award } from 'lucide-react';
+import {
+  TrendingUp,
+  MessageSquare,
+  Users,
+  Lightbulb,
+  Award,
+} from 'lucide-react';
 import Sponsors from '@/components/Sponsors';
 
 export default function HRSummitPage() {
   const benefits = [
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "Maximize Brand Visibility",
-      description: "Showcase your organization's brand to a global audience of HR professionals and decision-makers."
+      title: 'Maximize Brand Visibility',
+      description:
+        "Showcase your organization's brand to a global audience of HR professionals and decision-makers.",
     },
     {
       icon: <MessageSquare className="w-6 h-6" />,
-      title: "Lead Industry Conversations",
-      description: "Be part of the discussions shaping the future of HR."
+      title: 'Lead Industry Conversations',
+      description: 'Be part of the discussions shaping the future of HR.',
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Network with Leaders",
-      description: "Connect directly with 2,000+ HR leaders, talent managers, and C-suite executives."
+      title: 'Network with Leaders',
+      description:
+        'Connect directly with 2,000+ HR leaders, talent managers, and C-suite executives.',
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
-      title: "Showcase Innovation",
-      description: "Present your cutting-edge HR tools, technologies, and services to key stakeholders."
+      title: 'Showcase Innovation',
+      description:
+        'Present your cutting-edge HR tools, technologies, and services to key stakeholders.',
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "Exclusive Recognition",
-      description: "Stand out with unique branding opportunities in a premium event environment."
-    }
+      title: 'Exclusive Recognition',
+      description:
+        'Stand out with unique branding opportunities in a premium event environment.',
+    },
   ];
 
   return (
@@ -50,12 +60,18 @@ export default function HRSummitPage() {
         {/* Introduction */}
         <section className="mb-16">
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Join the prestigious <strong>World HR Summit & Expo – Global 2025</strong>, an unparalleled platform bringing together HR professionals, thought leaders, and industry innovators from around the world. This event is designed to explore groundbreaking ideas, recognize excellence in HR practices, and foster global networking opportunities.
+            Join the prestigious{' '}
+            <strong>World HR Summit & Expo – Global 2025</strong>, an
+            unparalleled platform bringing together HR professionals, thought
+            leaders, and industry innovators from around the world. This event
+            is designed to explore groundbreaking ideas, recognize excellence in
+            HR practices, and foster global networking opportunities.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Boost your brand visibility and position your company as a leader in the HR ecosystem by becoming a sponsor.
+            Boost your brand visibility and position your company as a leader in
+            the HR ecosystem by becoming a sponsor.
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="px-8 py-3 bg-[#002366] text-white font-semibold rounded hover:bg-[#001f4d] transition-colors">
@@ -74,7 +90,8 @@ export default function HRSummitPage() {
               Why participate World HR Summit & Expo – Global 2025
             </h2>
             <p className="text-lg text-gray-600">
-              Join us as a sponsor or exhibit and make your mark at the HR Summit.
+              Join us as a sponsor or exhibit and make your mark at the HR
+              Summit.
             </p>
           </div>
 
@@ -92,9 +109,7 @@ export default function HRSummitPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-700">
-                    {benefit.description}
-                  </p>
+                  <p className="text-gray-700">{benefit.description}</p>
                 </div>
               </div>
             ))}

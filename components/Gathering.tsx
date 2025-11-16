@@ -30,16 +30,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     <CardContent className="p-0">
       {/* Image Container with Overlay Effect */}
       <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-        <Image 
-          src={imageSrc} 
-          alt={alt} 
-          fill 
-          className="object-cover transition-transform duration-500 group-hover:scale-110" 
+        <Image
+          src={imageSrc}
+          alt={alt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         {/* Gradient overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/0 to-black/0 group-hover:from-black/0 group-hover:via-black/10 group-hover:to-black/20 transition-all duration-300" />
       </div>
-      
+
       {/* Content Section */}
       <div className="p-4 sm:p-5">
         <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors duration-300">

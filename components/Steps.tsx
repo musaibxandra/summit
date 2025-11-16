@@ -23,20 +23,14 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto text-center">
         <div className="grid gap-28 lg:grid-cols-2">
           <div className="">
-            <h2 className="flex text-left text-3xl font-bold">
-              {t('title')}
-            </h2>
+            <h2 className="flex text-left text-3xl font-bold">{t('title')}</h2>
             <br />
             <h3 className="flex text-left text-2xl font-bold">
               {t('subtitle')}
             </h3>
-            <p className="flex text-left">
-              {t('description')}
-            </p>
+            <p className="flex text-left">{t('description')}</p>
             <br />
-            <h4 className="font-bold text-left">
-              {t('stats')}
-            </h4>
+            <h4 className="font-bold text-left">{t('stats')}</h4>
             <br />
             <div className="flex gap-4">
               <Link href="/get_tickets">

@@ -9,7 +9,9 @@ const Venue: React.FC = () => {
         <h1 className="text-4xl font-bold text-gray-900 mb-2">
           Millennium Plaza Downtown Hotel
         </h1>
-        <p className="text-xl text-amber-600 font-semibold">Iconic Five Star Hotel</p>
+        <p className="text-xl text-amber-600 font-semibold">
+          Iconic Five Star Hotel
+        </p>
       </div>
 
       {/* Main Content Grid */}
@@ -31,13 +33,18 @@ const Venue: React.FC = () => {
         <div className="space-y-6">
           {/* Location Description */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Location & Accessibility</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Location & Accessibility
+            </h2>
             <p className="text-gray-700 leading-relaxed">
-              Millennium Plaza Downtown Hotel is an iconic landmark centrally located on Sheikh Zayed Road in Dubai, 
-              directly across from the Museum of the Future, the World Trade Centre, and the city&apos;s main business district. 
-              We are just minutes away from major attractions including Dubai Mall, Burj Khalifa, and The Dubai Frame. 
-              The hotel is also a 15-minute drive from the Gold Souk and Spice Market in Deira, and 20 minutes from 
-              Kite Beach, accessible via our daily shuttle service.
+              Millennium Plaza Downtown Hotel is an iconic landmark centrally
+              located on Sheikh Zayed Road in Dubai, directly across from the
+              Museum of the Future, the World Trade Centre, and the city&apos;s
+              main business district. We are just minutes away from major
+              attractions including Dubai Mall, Burj Khalifa, and The Dubai
+              Frame. The hotel is also a 15-minute drive from the Gold Souk and
+              Spice Market in Deira, and 20 minutes from Kite Beach, accessible
+              via our daily shuttle service.
             </p>
           </div>
 
@@ -64,19 +71,24 @@ const Venue: React.FC = () => {
           Meeting and Event Space
         </h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          This hotel has an excellent reputation for hosting meetings and events for many years. With one of the 
-          largest, pillarless ballrooms in Dubai accommodating up to 1,000 guests as well as 10 meeting rooms, 
-          many of which have natural daylight. These function rooms can host from 24 to 200 guests with your 
-          preferred layout to suit every type of event or conference.
+          This hotel has an excellent reputation for hosting meetings and events
+          for many years. With one of the largest, pillarless ballrooms in Dubai
+          accommodating up to 1,000 guests as well as 10 meeting rooms, many of
+          which have natural daylight. These function rooms can host from 24 to
+          200 guests with your preferred layout to suit every type of event or
+          conference.
         </p>
         <p className="text-gray-700 leading-relaxed">
-          Their experienced event planning team is here to ensure every meeting and function runs smoothly—whether 
-          in dynamic meeting rooms or the expansive ballroom, which accommodates up to 1,400 guests. Stay connected 
-          with complimentary Wi-Fi throughout the hotel, and make use of the fully equipped business center for 
-          professional needs. When it&apos;s time to unwind, enjoy a refreshing dip in the outdoor pool or catch up 
-          with colleagues over drinks or a casual meeting at one of the inviting restaurants and bars.
+          Their experienced event planning team is here to ensure every meeting
+          and function runs smoothly—whether in dynamic meeting rooms or the
+          expansive ballroom, which accommodates up to 1,400 guests. Stay
+          connected with complimentary Wi-Fi throughout the hotel, and make use
+          of the fully equipped business center for professional needs. When
+          it&apos;s time to unwind, enjoy a refreshing dip in the outdoor pool
+          or catch up with colleagues over drinks or a casual meeting at one of
+          the inviting restaurants and bars.
         </p>
-        
+
         <div className="mt-6 flex items-center gap-2 text-amber-600">
           <Wifi className="w-5 h-5" />
           <span className="font-semibold">Complimentary Wi-Fi Throughout</span>

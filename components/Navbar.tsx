@@ -165,13 +165,21 @@ const LanguageSwitcher = ({ onCloseMenu }: LanguageSwitcherProps) => {
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+          <div
+            className="fixed inset-0 z-10"
+            onClick={() => setIsOpen(false)}
+          />
           <div className="absolute right-0 z-20 mt-2 w-36 bg-white border border-gray-200 rounded-md shadow-lg">
             {languages.map((lang) => (
               <button
@@ -179,12 +187,18 @@ const LanguageSwitcher = ({ onCloseMenu }: LanguageSwitcherProps) => {
                 onClick={() => handleLanguageChange(lang.code)}
                 disabled={isSwitching}
                 className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md disabled:opacity-50 disabled:cursor-not-allowed ${
-                  currentLocale === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                  currentLocale === lang.code
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-gray-700'
                 }`}
               >
                 <span className="text-xs font-medium">{lang.name}</span>
                 {currentLocale === lang.code && (
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-3 h-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -233,15 +247,25 @@ const Navbar = () => {
 
         {/* Desktop Menu - Centered Links */}
         <div className="hidden lg:flex flex-1 items-center justify-center px-2 lg:px-4 min-w-0">
-          <NavigationMenu orientation="horizontal" value={navigationValue} onValueChange={setNavigationValue}>
+          <NavigationMenu
+            orientation="horizontal"
+            value={navigationValue}
+            onValueChange={setNavigationValue}
+          >
             <NavigationMenuList className="gap-1 lg:gap-2 xl:gap-3">
               {navbarLinks.map((item) => {
                 const labelKey =
-                  item.label === 'Home' ? 'home' :
-                  item.label === 'Attendees' ? 'attendees' :
-                  item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
-                  item.label === 'Awards' ? 'awards' :
-                  item.label === 'Contact' ? 'contact' : item.label.toLowerCase();
+                  item.label === 'Home'
+                    ? 'home'
+                    : item.label === 'Attendees'
+                      ? 'attendees'
+                      : item.label === 'Sponsor or Exhibit'
+                        ? 'sponsorOrExhibit'
+                        : item.label === 'Awards'
+                          ? 'awards'
+                          : item.label === 'Contact'
+                            ? 'contact'
+                            : item.label.toLowerCase();
                 const translatedLabel = tNav(labelKey as any) || item.label;
 
                 if (item.label === 'Attendees') {
@@ -353,8 +377,8 @@ const Navbar = () => {
                 <Image
                   src="/icons/hrlogo.jpeg"
                   alt="World HR Summit Logo"
-                  width={40}
-                  height={24}
+                  width={154}
+                  height={94}
                   priority
                 />
                 <span className="text-lg font-bold">{tNav('menu')}</span>
@@ -364,11 +388,17 @@ const Navbar = () => {
               <ul className="space-y-4">
                 {navbarLinks.map((item) => {
                   const labelKey =
-                    item.label === 'Home' ? 'home' :
-                    item.label === 'Attendees' ? 'attendees' :
-                    item.label === 'Sponsor or Exhibit' ? 'sponsorOrExhibit' :
-                    item.label === 'Awards' ? 'awards' :
-                    item.label === 'Contact' ? 'contact' : item.label.toLowerCase();
+                    item.label === 'Home'
+                      ? 'home'
+                      : item.label === 'Attendees'
+                        ? 'attendees'
+                        : item.label === 'Sponsor or Exhibit'
+                          ? 'sponsorOrExhibit'
+                          : item.label === 'Awards'
+                            ? 'awards'
+                            : item.label === 'Contact'
+                              ? 'contact'
+                              : item.label.toLowerCase();
                   const translatedLabel = tNav(labelKey as any) || item.label;
 
                   if (item.label === 'Attendees') {
@@ -443,7 +473,9 @@ const Navbar = () => {
                 {/* Mobile Buttons & Language Switcher */}
                 <li className="pt-4 space-y-2">
                   <div className="pb-2">
-                    <LanguageSwitcher onCloseMenu={() => setIsMobileOpen(false)} />
+                    <LanguageSwitcher
+                      onCloseMenu={() => setIsMobileOpen(false)}
+                    />
                   </div>
                   <Button
                     asChild

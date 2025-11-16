@@ -6,10 +6,7 @@ export async function POST(request: NextRequest) {
     const { locale } = await request.json();
 
     if (!locale || !['en', 'ar'].includes(locale)) {
-      return NextResponse.json(
-        { error: 'Invalid locale' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid locale' }, { status: 400 });
     }
 
     const cookieStore = await cookies();
@@ -19,7 +16,7 @@ export async function POST(request: NextRequest) {
       maxAge: 60 * 60 * 24 * 365, // 1 year
       sameSite: 'lax',
     });
-    
+
     // Also set 'locale' for backward compatibility
     cookieStore.set('locale', locale, {
       path: '/',
@@ -36,4 +33,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

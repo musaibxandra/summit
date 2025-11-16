@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 
@@ -27,7 +27,9 @@ const Speak: React.FC = () => {
     topic3: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -53,22 +55,41 @@ const Speak: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">Become a Speaker at The World HR Summit & Expo 2025</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Become a Speaker at The World HR Summit & Expo 2025
+      </h1>
       <p className="mb-4">
-        Contribute your insights and industry expertise as a speaker at The World HR Summit & Expo 2025. As a speaker, you will:
+        Contribute your insights and industry expertise as a speaker at The
+        World HR Summit & Expo 2025. As a speaker, you will:
       </p>
       <ul className="list-disc pl-6 mb-4">
-        <li>Elevate your professional profile and establish yourself as a thought leader in the global HR community</li>
-        <li>Connect directly with key industry figures, expand your network, and exchange knowledge with fellow professionals</li>
-        <li>Showcase your ideas and achievements to attract new business and career opportunities</li>
+        <li>
+          Elevate your professional profile and establish yourself as a thought
+          leader in the global HR community
+        </li>
+        <li>
+          Connect directly with key industry figures, expand your network, and
+          exchange knowledge with fellow professionals
+        </li>
+        <li>
+          Showcase your ideas and achievements to attract new business and
+          career opportunities
+        </li>
       </ul>
       <p className="mb-6">
-        This is your opportunity to register your interest as a speaker and propose up to three topics you’re passionate about. Please note that submitting a proposal does not guarantee a speaking slot at the event.
+        This is your opportunity to register your interest as a speaker and
+        propose up to three topics you’re passionate about. Please note that
+        submitting a proposal does not guarantee a speaking slot at the event.
       </p>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Full Name
+          </label>
           <input
             type="text"
             id="name"
@@ -80,7 +101,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email Address
+          </label>
           <input
             type="email"
             id="email"
@@ -92,7 +118,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">Job Title</label>
+          <label
+            htmlFor="jobTitle"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Job Title
+          </label>
           <input
             type="text"
             id="jobTitle"
@@ -104,7 +135,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700">Company</label>
+          <label
+            htmlFor="company"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Company
+          </label>
           <input
             type="text"
             id="company"
@@ -116,7 +152,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="bio" className="block text-sm font-medium text-gray-700">Short Bio (200 words max)</label>
+          <label
+            htmlFor="bio"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Short Bio (200 words max)
+          </label>
           <textarea
             id="bio"
             name="bio"
@@ -129,7 +170,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700">LinkedIn Profile (optional)</label>
+          <label
+            htmlFor="linkedin"
+            className="block text-sm font-medium text-gray-700"
+          >
+            LinkedIn Profile (optional)
+          </label>
           <input
             type="url"
             id="linkedin"
@@ -140,7 +186,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="topic1" className="block text-sm font-medium text-gray-700">Proposed Topic 1</label>
+          <label
+            htmlFor="topic1"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Proposed Topic 1
+          </label>
           <input
             type="text"
             id="topic1"
@@ -152,7 +203,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="topic2" className="block text-sm font-medium text-gray-700">Proposed Topic 2 (optional)</label>
+          <label
+            htmlFor="topic2"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Proposed Topic 2 (optional)
+          </label>
           <input
             type="text"
             id="topic2"
@@ -163,7 +219,12 @@ const Speak: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="topic3" className="block text-sm font-medium text-gray-700">Proposed Topic 3 (optional)</label>
+          <label
+            htmlFor="topic3"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Proposed Topic 3 (optional)
+          </label>
           <input
             type="text"
             id="topic3"

@@ -1879,7 +1879,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
    * ECMAScript DOM runtime.
    *
    * It will be appended to the base development runtime code.
-   */   /// <reference path="../base/runtime-base.ts" />
+   */ /// <reference path="../base/runtime-base.ts" />
   /// <reference path="../base/dev-base.ts" />
   /// <reference path="./runtime-backend-dom.ts" />
   /// <reference path="../../../shared/require-type.d.ts" />
@@ -1976,7 +1976,7 @@ importScripts(...self.TURBOPACK_NEXT_CHUNK_URLS.map(c => self.TURBOPACK_WORKER_L
         unescape(encodeURIComponent(map))
       )}`;
     }
-     
+
     return eval(code);
   }
   const chunksToRegister = globalThis.TURBOPACK;

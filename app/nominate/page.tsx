@@ -10,7 +10,7 @@ export default function NominateComponent() {
   const categories = [
     'Corporate Awards',
     'Talent Categories',
-    'Specialized Awards'
+    'Specialized Awards',
   ];
 
   const corporateAwards = [
@@ -48,20 +48,21 @@ export default function NominateComponent() {
     'Excellence in Leadership Pipeline Development',
     'Best Corporate Training Provider',
     'Outstanding Corporate Social Responsibility (CSR) Program',
-    'Excellence in Employer-Employee Relations'
+    'Excellence in Employer-Employee Relations',
   ];
 
   const handleSubmit = () => {
     console.log({
       category: selectedCategory,
       award: selectedAward,
-      reason: reason
+      reason: reason,
     });
     // Handle form submission
   };
 
-  const isFormValid = selectedCategory && 
-    (selectedCategory !== 'Corporate Awards' || selectedAward) && 
+  const isFormValid =
+    selectedCategory &&
+    (selectedCategory !== 'Corporate Awards' || selectedAward) &&
     reason.trim() !== '';
 
   return (
@@ -73,7 +74,8 @@ export default function NominateComponent() {
             Submit Your Nomination
           </h1>
           <p className="text-gray-600">
-            Recognize excellence in HR by nominating deserving organizations and individuals
+            Recognize excellence in HR by nominating deserving organizations and
+            individuals
           </p>
         </div>
 
@@ -90,8 +92,10 @@ export default function NominateComponent() {
                   key={category}
                   className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all hover:border-blue-200"
                   style={{
-                    borderColor: selectedCategory === category ? '#2563eb' : '#e5e7eb',
-                    backgroundColor: selectedCategory === category ? '#eff6ff' : 'white'
+                    borderColor:
+                      selectedCategory === category ? '#2563eb' : '#e5e7eb',
+                    backgroundColor:
+                      selectedCategory === category ? '#eff6ff' : 'white',
                   }}
                 >
                   <input
@@ -116,7 +120,10 @@ export default function NominateComponent() {
           {/* Corporate Award Selection */}
           {selectedCategory === 'Corporate Awards' && (
             <div className="mb-8">
-              <label htmlFor="award" className="block text-sm font-semibold text-gray-900 mb-3">
+              <label
+                htmlFor="award"
+                className="block text-sm font-semibold text-gray-900 mb-3"
+              >
                 Select a Corporate Award category *
               </label>
               <div className="relative">
@@ -158,7 +165,10 @@ export default function NominateComponent() {
 
           {/* Reason for Nomination */}
           <div className="mb-8">
-            <label htmlFor="reason" className="block text-sm font-semibold text-gray-900 mb-3">
+            <label
+              htmlFor="reason"
+              className="block text-sm font-semibold text-gray-900 mb-3"
+            >
               Reason for Nomination and Key Achievements *
             </label>
             <textarea
@@ -170,7 +180,8 @@ export default function NominateComponent() {
               placeholder="Please describe the reason for this nomination and highlight key achievements..."
             />
             <p className="mt-2 text-sm text-gray-500">
-              Provide specific examples and measurable results that demonstrate excellence
+              Provide specific examples and measurable results that demonstrate
+              excellence
             </p>
           </div>
 

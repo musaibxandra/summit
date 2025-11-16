@@ -1,12 +1,12 @@
-import Honorees from '@/components/Honorees'
-import React from 'react'
+import Honorees from '@/components/Honorees';
+import React from 'react';
 
 const page = () => {
   return (
     <div>
-      <Honorees/>
+      <Honorees />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

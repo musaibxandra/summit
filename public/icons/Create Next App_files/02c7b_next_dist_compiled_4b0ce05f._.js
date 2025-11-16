@@ -733,7 +733,7 @@
                   if (ownNames.length > 1 || ownNames[0] !== 'constructor') {
                     // This looks like a class.
                     return false;
-                  }  
+                  }
                   if (type.prototype.__proto__ !== Object.prototype) {
                     // It has a superclass.
                     return false;

@@ -22,20 +22,20 @@ interface SendPaymentResponse {
 
 // Use environment variable for API URL, default to test if not set
 const baseURL =
-  process.env.MYFATOORAH_API_URL || 'https://apitest.myfatoorah.com';
+  process.env.MYFATOORAH_API_URL;
 const token = process.env.MYFATOORAH_TOKEN;
 
-// GET /api/create-payment (info endpoint)
+// GET /api/create_payment (info endpoint)
 export async function GET() {
   return NextResponse.json({
     message:
       'This endpoint requires a POST request with JSON body: { amount: number, customerName: string, customerEmail: string }',
     example:
-      'curl -X POST http://localhost:3000/api/create-payment -H \'Content-Type: application/json\' -d \'{"amount":10.00,"customerName":"Test User","customerEmail":"test@example.com"}\'',
+      'curl -X POST http://localhost:3000/api/create_payment -H \'Content-Type: application/json\' -d \'{"amount":10.00,"customerName":"Test User","customerEmail":"test@example.com"}\'',
   });
 }
 
-// POST /api/create-payment (main endpoint)
+// POST /api/create_payment (main endpoint)
 export async function POST(request: NextRequest) {
   if (!token) {
     return NextResponse.json(
@@ -72,48 +72,65 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         CustomerName: customerName,
-        NotificationOption: 'Lnk',
+        NotificationOption: 'LNK', 
         InvoiceValue: amount,
         CustomerEmail: customerEmail,
         CallBackUrl:
-          process.env.NEXT_PUBLIC_SUCCESS_URL ||
-          process.env.NEXT_PUBLIC_SITE_URL ||
-          'http://localhost:3000',
+          process.env.NEXT_PUBLIC_SUCCESS_URL,
         ErrorUrl:
-          process.env.NEXT_PUBLIC_ERROR_URL ||
-          `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/error`,
-        Language: 'en',
+          process.env.NEXT_PUBLIC_ERROR_URL,
+        Language: 'EN', 
       }),
     });
 
     console.log('MyFatoorah API Response Status:', response.status);
 
     if (!response.ok) {
-      const errorData = await response.text();
+      // IMPROVED: Try JSON first for structured errors
+      let errorData;
+      try {
+        errorData = await response.json();
+      } catch {
+        errorData = await response.text();
+      }
       console.error('MyFatoorah API Error Details:', errorData);
       throw new Error(
-        `API error: ${response.status} ${response.statusText} - ${errorData}`
+        `API error: ${response.status} ${response.statusText} - ${typeof errorData === 'string' ? errorData : JSON.stringify(errorData)}`
       );
     }
 
     const data: SendPaymentResponse = await response.json();
-    console.log('Payment created successfully:', data.Data.InvoiceURL);
+
+    // FIXED: Check IsSuccess even on 2xx status
+    if (!data.IsSuccess) {
+      const errorMsg = data.Message || 'Payment creation failed';
+      const validationErrors = data.ValidationErrors;
+      if (validationErrors && validationErrors.length > 0) {
+        console.error('Validation Errors:', validationErrors);
+        // Append first error for brevity
+        const firstError = validationErrors[0];
+        throw new Error(`${errorMsg}. Validation: ${firstError.Message} (${firstError.VariableName || 'unknown'})`);
+      }
+      throw new Error(errorMsg);
+    }
+
+    console.log('Payment created successfully:', { isSuccess: data.IsSuccess, invoiceId: data.Data.InvoiceId, invoiceUrl: data.Data.InvoiceURL });
 
     const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': '*', // TODO: Restrict to domain in prod
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
 
     return NextResponse.json(
-      { paymentUrl: data.Data.InvoiceURL },
+      { paymentUrl: data.Data.InvoiceURL, invoiceId: data.Data.InvoiceId },
       {
-        status: 200,
+        // status: 200, // Implicit, can remove
         headers: corsHeaders,
       }
     );
   } catch (error) {
-    console.error('Full Error in /create-payment:', error);
+    console.error('Full Error in /create_payment:', error);
     return NextResponse.json(
       { error: 'Failed to create payment', details: (error as Error).message },
       { status: 500 }
@@ -124,7 +141,7 @@ export async function POST(request: NextRequest) {
 // OPTIONS for CORS preflight
 export async function OPTIONS() {
   return new NextResponse(null, {
-    status: 200,
+    status: 204, // IMPROVED: Standard for preflight
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',

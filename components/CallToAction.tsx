@@ -85,9 +85,7 @@ const CallToAction = () => {
           <h1 className="text-center text-white text-4xl font-bold">
             {t('title')}
           </h1>
-          <h1 className="text-center text-white text-lg">
-            {t('subtitle')}
-          </h1>
+          <h1 className="text-center text-white text-lg">{t('subtitle')}</h1>
           <div className="grid md:grid-cols-2 items-center gap-8 mt-6">
             {/* Image Column - Already included as requested */}
             <motion.div

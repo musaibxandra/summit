@@ -35,17 +35,20 @@ Before deploying, you need to set the following environment variables in your ho
 ### Setting Environment Variables
 
 #### Vercel
+
 1. Go to your project dashboard
 2. Navigate to Settings → Environment Variables
 3. Add each variable with its value
 4. Select the environment (Production, Preview, Development)
 
 #### Netlify
+
 1. Go to Site settings → Environment variables
 2. Add each variable with its value
 3. Deploy settings will pick them up automatically
 
 #### Other Platforms
+
 - Add environment variables in your hosting platform's dashboard
 - Ensure they're marked as "secret" or "encrypted" if available
 
@@ -75,16 +78,18 @@ Before deploying, you need to set the following environment variables in your ho
 ## Troubleshooting
 
 ### Payment API returns 500 error
+
 - Check that `MYFATOORAH_TOKEN` is set correctly
 - Verify the token is valid and has necessary permissions
 - Check API URL is correct (test vs production)
 
 ### Callback URLs not working
+
 - Ensure `NEXT_PUBLIC_SITE_URL` is set to your production domain
 - Verify the callback URLs are accessible (not blocked by firewall)
 - Check that success/error pages exist on your site
 
 ### CORS errors
+
 - If you need to restrict CORS, update the `Access-Control-Allow-Origin` header in `route.ts`
 - Replace `'*'` with your specific domain(s)
-

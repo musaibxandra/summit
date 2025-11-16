@@ -28,9 +28,7 @@ export default function Sponsors() {
   return (
     <div className="w-full px-4 md:px-6">
       <div className="max-w-7xl mx-auto my-6 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-8 text-center">
-          {t('title')}
-        </h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">{t('title')}</h1>
         <div className="w-full max-w-4xl my-16">
           {' '}
           {/* Increased max-width for bigger carousel */}
