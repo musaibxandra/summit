@@ -415,7 +415,12 @@ const Tickets = () => {
         throw new Error('No payment URL returned');
       }
 
-      window.open(paymentUrl, '_blank');
+      // Try to open in new window, fallback to same window if blocked
+      const newWindow = window.open(paymentUrl, '_blank');
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Popup blocked, redirect in same window
+        window.location.href = paymentUrl;
+      }
 
       setShowCheckout(false);
       setQuantities({});

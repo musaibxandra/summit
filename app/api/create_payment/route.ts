@@ -22,7 +22,7 @@ interface SendPaymentResponse {
 
 // Use environment variable for API URL, default to test if not set
 const baseURL =
-  process.env.MYFATOORAH_API_URL;
+  process.env.MYFATOORAH_API_URL || process.env.MYFATOORAH__URL;
 const token = process.env.MYFATOORAH_TOKEN;
 
 // GET /api/create_payment (info endpoint)
@@ -40,6 +40,13 @@ export async function POST(request: NextRequest) {
   if (!token) {
     return NextResponse.json(
       { error: 'Server configuration error: Token not set' },
+      { status: 500 }
+    );
+  }
+
+  if (!baseURL) {
+    return NextResponse.json(
+      { error: 'Server configuration error: MYFATOORAH_API_URL or MYFATOORAH__URL not set' },
       { status: 500 }
     );
   }
