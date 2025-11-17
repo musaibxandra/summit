@@ -44,7 +44,7 @@ export default function HRSummitPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-[#002366] text-white py-16">
+      <header className="bg-primary text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Brand Engagement Opportunities
@@ -74,10 +74,10 @@ export default function HRSummitPage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-3 bg-[#002366] text-white font-semibold rounded hover:bg-[#001f4d] transition-colors">
+            <button className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
               Become a Sponsor
             </button>
-            <button className="px-8 py-3 bg-white text-[#002366] font-semibold rounded border-2 border-[#002366] hover:bg-blue-50 transition-colors">
+            <button className="px-8 py-3 bg-white text-primary font-semibold rounded border-2 border-primary hover:bg-blue-50 transition-colors">
               Request to Exhibit
             </button>
           </div>
@@ -86,7 +86,7 @@ export default function HRSummitPage() {
         {/* Why Participate Section */}
         <section>
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Why participate World HR Summit & Expo – Global 2025
             </h2>
             <p className="text-lg text-gray-600">
@@ -102,11 +102,11 @@ export default function HRSummitPage() {
                 key={index}
                 className="flex gap-6 p-6 bg-gray-50 rounded-lg border border-gray-200"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-[#002366] text-white rounded flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded flex items-center justify-center">
                   {benefit.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-primary mb-2">
                     {benefit.title}
                   </h3>
                   <p className="text-gray-700">{benefit.description}</p>
@@ -120,17 +120,17 @@ export default function HRSummitPage() {
         {/* Bottom CTA */}
         <section className="mt-16 pt-16 border-t border-gray-200">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-bold text-primary mb-4">
               Ready to Partner With Us?
             </h3>
             <p className="text-lg text-gray-600 mb-8">
               Position your brand at the forefront of HR innovation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-[#002366] text-white font-semibold rounded hover:bg-[#001f4d] transition-colors">
+              <button className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
                 Become a Sponsor
               </button>
-              <button className="px-8 py-3 bg-white text-[#002366] font-semibold rounded border-2 border-[#002366] hover:bg-blue-50 transition-colors">
+              <button className="px-8 py-3 bg-white text-primary font-semibold rounded border-2 border-primary hover:bg-blue-50 transition-colors">
                 Request to Exhibit
               </button>
             </div>

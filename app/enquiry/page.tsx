@@ -8,7 +8,7 @@ export default function Enquiry() {
 
   return (
     <section className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md my-12">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+      <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
         Sponsorship Packages
       </h2>
 

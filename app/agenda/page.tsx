@@ -115,10 +115,10 @@ const Agenda: React.FC = () => {
       {/* Hero Section */}
       <section className="w-full px-4 md:px-6 py-12 md:py-16">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-4">
             Shaping Tomorrow&apos;s HR
           </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#002366] mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-primary mb-8">
             Join the World HR Summit & Expo – Global 2025
           </h2>
           <div className="max-w-4xl mx-auto space-y-4 text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -144,7 +144,7 @@ const Agenda: React.FC = () => {
           <div className="flex flex-col lg:flex-row h-auto lg:h-[80vh] gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
             {/* First Column: Fixed Topics List */}
             <div className="w-full lg:w-1/2 bg-gray-50 p-6 lg:p-8 flex flex-col">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">
+              <h2 className="text-xl font-bold mb-4 text-primary">
                 Key Topics to be Discussed
               </h2>
               <p className="text-gray-600 mb-6">
@@ -162,7 +162,7 @@ const Agenda: React.FC = () => {
             </div>
             {/* Second Column: Scrollable Schedule */}
             <div className="w-full lg:w-1/2 py-6 lg:py-12 p-6 lg:p-8 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">
+              <h2 className="text-xl font-bold mb-4 text-primary">
                 Conference Schedule
               </h2>
               <div className="space-y-6">
@@ -182,7 +182,7 @@ const Agenda: React.FC = () => {
                     <p className="text-xs text-gray-400 mb-2">
                       {item.location}
                     </p>
-                    <h3 className="font-medium text-gray-900 mb-1">
+                    <h3 className="font-medium text-primary mb-1">
                       {item.title}
                     </h3>
                     {item.speaker && (

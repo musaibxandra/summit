@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">
+          <h1 className="text-4xl font-bold text-primary mb-3">
             Get in Touch
           </h1>
           <p className="text-lg text-gray-600">

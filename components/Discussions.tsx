@@ -80,7 +80,7 @@ const Discussions = () => {
               <div className="absolute top-32 right-20 w-28 h-28 bg-indigo-300 rounded-full blur-2xl animate-bounce"></div>
             </div>
 
-            <h1 className="w-full text-xl font-bold relative z-10">
+            <h1 className="w-full text-xl font-bold relative z-10 text-primary">
               {t('dec4Title')}
             </h1>
             <br />
@@ -96,7 +96,7 @@ const Discussions = () => {
             ))}
             <br />
             <Link href="/agenda">
-              <Button className="relative bg-[#002366] cursor-pointer z-10">
+              <Button className="relative cursor-pointer z-10">
                 {t('readAgenda')}
               </Button>
             </Link>
@@ -110,7 +110,7 @@ const Discussions = () => {
               <div className="absolute bottom-24 right-24 w-32 h-32 border-4 border-green-400 rounded-2xl animate-spin"></div>
             </div>
 
-            <h1 className="w-full text-lg font-bold relative z-10">
+            <h1 className="w-full text-lg font-bold relative z-10 text-primary">
               {t('dec5Title')}
             </h1>
             <br />
@@ -127,7 +127,7 @@ const Discussions = () => {
             <br />
             <br />
             <Link href="/agenda">
-              <Button className="relative cursor-pointer bg-[#002366] z-10">
+              <Button className="relative cursor-pointer z-10">
                 {t('readAgenda')}
               </Button>
             </Link>

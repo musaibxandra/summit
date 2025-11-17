@@ -21,7 +21,7 @@ export default function ErrorPage() {
       </p>
       <a
         href="/get_tickets" // Back to registration
-        className="inline-block bg-[#002366] text-white px-6 py-3 rounded-lg hover:bg-[#001a4d] transition-colors"
+        className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
       >
         Retry Registration
       </a>

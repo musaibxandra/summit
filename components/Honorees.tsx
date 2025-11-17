@@ -3,7 +3,6 @@
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 import { Linkedin } from 'lucide-react';
-import { Button } from './ui/button';
 import { useTranslations } from 'next-intl';
 
 interface Speaker {
@@ -82,17 +81,17 @@ const SpeakerCard: React.FC<Speaker & { t: any }> = ({
   t,
 }) => (
   <CardContainer className="inter-var">
-    <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
+    <CardBody className="bg-white relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-primary/20 w-full h-auto rounded-xl p-6 border transition-all duration-300 hover:-translate-y-1">
       <CardItem
         translateZ="50"
-        className="text-xl font-bold text-neutral-600 dark:text-white"
+        className="text-xl font-bold text-primary dark:text-white"
       >
         {title}
       </CardItem>
       <CardItem
         as="p"
         translateZ="60"
-        className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+        className="text-sm max-w-sm mt-2 text-primary/80 dark:text-neutral-300"
       >
         {description}
       </CardItem>
@@ -111,7 +110,7 @@ const SpeakerCard: React.FC<Speaker & { t: any }> = ({
           as="a"
           href={linkedinUrl}
           target="_blank"
-          className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+          className="px-4 py-2 rounded-xl text-xs font-semibold text-primary dark:text-white"
         >
           {t('checkOut')}
         </CardItem>
@@ -120,7 +119,7 @@ const SpeakerCard: React.FC<Speaker & { t: any }> = ({
           as="a"
           href={linkedinUrl}
           target="_blank"
-          className="px-4 py-2 rounded-xl cursor-pointer bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+          className="px-4 py-2 rounded-xl cursor-pointer bg-primary text-primary-foreground text-xs font-bold hover:bg-primary/90 transition-colors dark:bg-white dark:text-black"
         >
           <div className="flex gap-2">
             <Linkedin size={16} /> LinkedIn

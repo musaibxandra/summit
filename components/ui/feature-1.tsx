@@ -27,7 +27,7 @@ interface Feature1Props {
 // components/Feature1.tsx
 export const Feature1 = ({
   title = 'Blocks built with Shadcn & Tailwind',
-  image = '/icons/hrlogo.png',
+  image = '/icons/logo.svg',
   description = 'Hundreds of finely crafted components...',
   description2 = '',
   videoSrc = '/vid/hrtech.mp4',
@@ -80,19 +80,19 @@ export const Feature1 = ({
           <div className="flex flex-col sm:flex-row gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto">
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+              className="px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap shadow-lg hover:shadow-xl transition-all"
             >
               <Link href={firstButton.href}>{firstButton.label}</Link>
             </Button>
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+              className="px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap shadow-lg hover:shadow-xl transition-all"
             >
               <Link href={secondButton.href}>{secondButton.label}</Link>
             </Button>
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient hover:opacity-90 px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap text-white"
+              className="px-4 py-2 text-sm md:px-5 md:py-2.5 whitespace-nowrap shadow-lg hover:shadow-xl transition-all"
             >
               <Link href={thirdButton.href}>{thirdButton.label}</Link>
             </Button>

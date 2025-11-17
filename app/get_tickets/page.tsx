@@ -122,12 +122,12 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     <div className="w-full px-4 md:px-6 py-8 md:py-12">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-gray-900">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-primary">
             Complete Your Registration
           </h2>
           <p className="text-lg md:text-xl text-gray-600 font-semibold">
             Total:{' '}
-            <span className="text-[#002366]">USD {total.toFixed(2)}</span>
+            <span className="text-primary">USD {total.toFixed(2)}</span>
           </p>
         </div>
 
@@ -146,7 +146,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.firstName}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               />
             </div>
             <div>
@@ -159,7 +159,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.lastName}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -174,7 +174,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.jobTitle}
               onChange={handleChange}
               required
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
             />
           </div>
 
@@ -188,7 +188,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.attendeeBirdCity}
               onChange={handleChange}
               required
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
             />
           </div>
 
@@ -203,7 +203,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               onChange={handleChange}
               required
               autoComplete="email"
-              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+              className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
             />
           </div>
 
@@ -219,7 +219,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 onChange={handleChange}
                 placeholder="Bahrain +973"
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               />
             </div>
             <div>
@@ -231,7 +231,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.country}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all bg-white"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all bg-white"
               >
                 <option value="">Select Country</option>
                 <option value="Bahrain">Bahrain</option>
@@ -251,7 +251,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.city}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               />
             </div>
             <div>
@@ -264,7 +264,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.howDidYouHear}
                 onChange={handleChange}
                 required
-                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] transition-all"
+                className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -275,7 +275,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               name="subscribeNewsletter"
               checked={formData.subscribeNewsletter}
               onChange={handleChange}
-              className="mt-1 rounded border-gray-300 text-[#002366] focus:ring-[#002366]"
+              className="mt-1 rounded border-gray-300 text-primary focus:ring-primary"
             />
             <label className="text-sm text-gray-700 leading-relaxed">
               Subscribe to The World HR Summit & Expo – Global (2025)
@@ -290,7 +290,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               checked={formData.termsAccepted}
               onChange={handleChange}
               required
-              className="mt-1 rounded border-gray-300 text-[#002366] focus:ring-[#002366]"
+              className="mt-1 rounded border-gray-300 text-primary focus:ring-primary"
             />
             <label className="text-sm text-gray-700 leading-relaxed">
               Terms, conditions and privacy. By continuing with the registration
@@ -304,13 +304,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
               type="button"
               variant="outline"
               onClick={onBack}
-              className="border-[#002366] text-[#002366] hover:bg-[#002366] hover:bg-opacity-10 px-6 md:px-8 py-3 text-base md:text-lg font-semibold"
+              className="border-primary text-primary hover:bg-primary/10 px-6 md:px-8 py-3 text-base md:text-lg font-semibold"
             >
               Back
             </Button>
             <Button
               type="submit"
-              className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="cursor-pointer px-6 md:px-8 py-3 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               Submit Registration
             </Button>
@@ -448,7 +448,7 @@ const Tickets = () => {
     <div className="w-full px-4 md:px-6 py-8 md:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary">
             Attendee Registration
           </h1>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -463,12 +463,12 @@ const Tickets = () => {
               key={option.id}
               className={`group p-6 md:p-8 border-2 rounded-xl cursor-pointer transition-all duration-300 bg-white shadow-sm hover:shadow-lg ${
                 selectedPass === option.id
-                  ? 'border-[#002366] bg-[#002366] bg-opacity-10 shadow-lg scale-105'
-                  : 'border-gray-200 hover:border-[#002366] hover:scale-102'
+                  ? 'border-primary bg-primary bg-opacity-10 shadow-lg scale-105'
+                  : 'border-gray-200 hover:border-primary hover:scale-102'
               }`}
               onClick={() => handlePassSelect(option.id)}
             >
-              <h3 className="font-bold text-lg md:text-xl mb-3 text-gray-900 group-hover:text-[#002366] transition-colors">
+              <h3 className="font-bold text-lg md:text-xl mb-3 text-primary transition-colors">
                 {option.title}
               </h3>
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -482,7 +482,7 @@ const Tickets = () => {
           <>
             <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8 mb-6 md:mb-8 shadow-sm">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">
                   Select Pricing Tier
                 </h2>
                 <button
@@ -501,10 +501,10 @@ const Tickets = () => {
                     className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex-1">
-                      <h3 className="font-semibold text-base md:text-lg text-gray-900 mb-1">
+                      <h3 className="font-semibold text-base md:text-lg text-primary mb-1">
                         {tier.name}
                       </h3>
-                      <p className="text-[#002366] font-bold text-lg md:text-xl">
+                      <p className="text-primary font-bold text-lg md:text-xl">
                         USD {tier.price.toFixed(2)}
                       </p>
                     </div>
@@ -519,7 +519,7 @@ const Tickets = () => {
                         onChange={(e) =>
                           updateQuantity(tier.id, parseInt(e.target.value) || 0)
                         }
-                        className="w-24 p-3 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366] font-semibold"
+                        className="w-24 p-3 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary font-semibold"
                       />
                     </div>
                   </div>
@@ -528,10 +528,10 @@ const Tickets = () => {
 
               <div className="mt-6 p-5 md:p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border border-green-200">
                 <div className="flex justify-between items-center">
-                  <h3 className="font-bold text-lg md:text-xl text-gray-900">
+                  <h3 className="font-bold text-lg md:text-xl text-primary">
                     Subtotal:
                   </h3>
-                  <p className="text-[#002366] font-bold text-xl md:text-2xl">
+                  <p className="text-primary font-bold text-xl md:text-2xl">
                     USD {total.toFixed(2)}
                   </p>
                 </div>
@@ -539,7 +539,7 @@ const Tickets = () => {
             </div>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8 mb-6 md:mb-8 shadow-sm">
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-gray-900">
+              <h3 className="text-xl md:text-2xl font-bold mb-6 text-primary">
                 Apply for Special Discount (Optional)
               </h3>
               <div className="space-y-4">
@@ -548,8 +548,8 @@ const Tickets = () => {
                     key={discount.id}
                     className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       selectedDiscount === discount.id
-                        ? 'border-[#002366] bg-blue-200 bg-opacity-10'
-                        : 'border-gray-200 hover:border-[#002366] hover:bg-gray-50'
+                        ? 'border-primary bg-blue-200 bg-opacity-10'
+                        : 'border-gray-200 hover:border-primary hover:bg-gray-50'
                     } ${
                       discount.id === 'academic' && selectedPass !== 'general'
                         ? 'opacity-50 cursor-not-allowed'
@@ -565,10 +565,10 @@ const Tickets = () => {
                       disabled={
                         discount.id === 'academic' && selectedPass !== 'general'
                       }
-                      className="mt-1 mr-3 text-[#002366] focus:ring-[#002366]"
+                      className="mt-1 mr-3 text-primary focus:ring-primary"
                     />
                     <div className="flex-1">
-                      <p className="font-semibold text-gray-900 mb-1">
+                      <p className="font-semibold text-primary mb-1">
                         {discount.name}
                       </p>
                       {discount.note && (
@@ -585,7 +585,7 @@ const Tickets = () => {
                             onChange={(e) =>
                               setEmailForDiscount(e.target.value)
                             }
-                            className="mt-2 w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#002366] focus:border-[#002366]"
+                            className="mt-2 w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                           />
                         )}
                     </div>
@@ -597,13 +597,13 @@ const Tickets = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 onClick={handleProceedToCheckout}
-                className="w-full sm:w-auto bg-[#002366] hover:bg-[#001a4d] text-white px-8 py-3 md:py-4 text-base md:text-lg cursor-pointer font-semibold shadow-lg hover:shadow-xl transition-all"
+                className="w-full sm:w-auto px-8 py-3 md:py-4 text-base md:text-lg cursor-pointer font-semibold shadow-lg hover:shadow-xl transition-all"
               >
                 Proceed to Checkout (USD {total.toFixed(2)})
               </Button>
               <Button
                 variant="outline"
-                className="w-full sm:w-auto border-[#002366] text-[#002366] hover:bg-[#e6f0ff] px-8 py-3 md:py-4 cursor-text-base md:text-lg font-semibold"
+                className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10 px-8 py-3 md:py-4 text-base md:text-lg font-semibold"
               >
                 Download Brochure
               </Button>
@@ -618,7 +618,7 @@ const Tickets = () => {
             </p>
             <Button
               onClick={() => setShowPricing(true)}
-              className="bg-[#002366] hover:bg-[#001a4d] text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
             >
               View Pricing
             </Button>

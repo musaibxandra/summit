@@ -42,7 +42,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
       {/* Content Section */}
       <div className="p-4 sm:p-5">
-        <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+        <CardTitle className="text-lg sm:text-xl font-bold text-primary line-clamp-2 mb-2 group-hover:text-primary transition-colors duration-300">
           {title}
         </CardTitle>
         <CardDescription className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
@@ -93,10 +93,10 @@ const Gathering = () => {
     <section className="w-full px-4 md:px-6 py-12 md:py-16 bg-gradient-to-b from-white to-gray-50/30">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 md:mb-16 text-center md:text-left">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4">
             {t('title')}
           </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl">
+          <p className="text-base md:text-lg text-primary max-w-3xl">
             {t('description')}
           </p>
         </div>
@@ -110,17 +110,17 @@ const Gathering = () => {
 
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           <Link href="/get_tickets" rel="noopener noreferrer">
-            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
+            <Button className="cursor-pointer text-sm px-5 py-2 h-9">
               {t('getTickets')}
             </Button>
           </Link>
           <Link href="/sponsorship" rel="noopener noreferrer">
-            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
+            <Button className="cursor-pointer text-sm px-5 py-2 h-9">
               {t('sponsorOrExhibit')}
             </Button>
           </Link>
           <Link href="/nominate" rel="noopener noreferrer">
-            <Button className="bg-[#002366] cursor-pointer hover:bg-[#001a4d] text-white text-sm px-5 py-2 h-9">
+            <Button className="cursor-pointer text-sm px-5 py-2 h-9">
               {t('nominate')}
             </Button>
           </Link>

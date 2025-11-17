@@ -230,9 +230,9 @@ const Navbar = () => {
     <header className="w-full px-4 md:px-6 py-3 bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+        <Link href="/" className="flex items-center gap-2 mt-1 flex-shrink-0">
           <Image
-            src="/icons/hrlogo.jpeg"
+            src="/icons/logo.svg"
             alt="World HR Summit Logo"
             width={214}
             height={164}
@@ -351,13 +351,13 @@ const Navbar = () => {
           <LanguageSwitcher />
           <Button
             asChild
-            className="bg-[#002366] px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-[#001a4d] whitespace-nowrap"
+            className="px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 whitespace-nowrap"
           >
             <Link href="/get_tickets">{tNav('tickets')}</Link>
           </Button>
           <Button
             asChild
-            className="bg-[#002366] px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 hover:bg-[#001a4d] whitespace-nowrap"
+            className="px-3 py-1.5 text-xs lg:text-sm lg:px-4 lg:py-2 xl:px-5 whitespace-nowrap"
           >
             <Link href="/nominate">{tNav('nominate')}</Link>
           </Button>
@@ -375,7 +375,7 @@ const Navbar = () => {
             <SheetHeader className="border-b border-gray-200 px-6 py-4">
               <SheetTitle className="flex items-center gap-2">
                 <Image
-                  src="/icons/hrlogo.jpeg"
+                  src="/icons/logo.svg"
                   alt="World HR Summit Logo"
                   width={154}
                   height={94}
@@ -479,14 +479,14 @@ const Navbar = () => {
                   </div>
                   <Button
                     asChild
-                    className="w-full bg-[#002366] px-5 hover:bg-[#001a4d]"
+                    className="w-full px-5"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/get_tickets">{tNav('tickets')}</Link>
                   </Button>
                   <Button
                     asChild
-                    className="w-full bg-[#002366] px-5 hover:bg-[#001a4d]"
+                    className="w-full px-5"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     <Link href="/nominate">{tNav('nominate')}</Link>

@@ -6,7 +6,7 @@ const Venue: React.FC = () => {
     <div className="max-w-7xl mx-auto p-6 bg-white">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+        <h1 className="text-4xl font-bold text-primary mb-2">
           Millennium Plaza Downtown Hotel
         </h1>
         <p className="text-xl text-amber-600 font-semibold">
@@ -33,7 +33,7 @@ const Venue: React.FC = () => {
         <div className="space-y-6">
           {/* Location Description */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl font-bold text-primary mb-3">
               Location & Accessibility
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -66,7 +66,7 @@ const Venue: React.FC = () => {
 
       {/* Meeting and Event Space Section */}
       <div className="bg-gray-50 p-8 rounded-lg mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <Calendar className="w-7 h-7 text-amber-600" />
           Meeting and Event Space
         </h2>
@@ -97,7 +97,7 @@ const Venue: React.FC = () => {
 
       {/* Location Map */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
           <MapPin className="w-7 h-7 text-amber-600" />
           Our Location
         </h2>

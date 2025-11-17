@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: 'World HR Summit 2025',
   description: 'Welcome to the World HR Summit 2025',
   icons: {
-    icon: '/icons/hrlogo.jpeg', // or '/favicon.png'
+    icon: '/icons/logo.svg', // or '/favicon.png'
   },
   openGraph: {
     title: 'World HR Summit 2025',
