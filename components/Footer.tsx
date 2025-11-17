@@ -70,7 +70,7 @@ const Footer = () => {
           <motion.div variants={fadeInUp} className="text-left">
             <Link href="/" className="inline-block">
               <Image
-                src="/icons/logo.svg" // Update to your actual logo path (e.g., in public/) - make it a high-res PNG/SVG for big size
+                src="/icons/screenshot.png" // Update to your actual logo path (e.g., in public/) - make it a high-res PNG/SVG for big size
                 alt="HR Gathering Logo"
                 width={200} // Adjust for "big" size; e.g., 200-300px wide
                 height={120} // Proportional height; tweak as needed
